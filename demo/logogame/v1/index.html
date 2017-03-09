@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html  ng-app="logoApp">
+<head>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Logo Game</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/clj-fuzzy.js"></script>
+	<script src="controler/logo.controller.js"></script>
+	<link href="logo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+<div ng-controller="LogoController" style="padding-left:50px;padding-right:50px;">
+	<h2 id="big_title">Logo Game</h2>
+	<div ng-show="scoreMessage" ng-class="scoreMessageClass" role="alert" ng-bind-html="scoreMessage"></div>
+	<div class="row">
+	  <div class="col-md-3" ng-repeat="remainder in [0,1,2,3]">
+	    <div>
+	      <div class="logotable" ng-repeat="logo in logosDisplayed" ng-if="$index % 4 == remainder"><img style="padding-left:40px;" ng-src="img/{{logo.name}}.jpg"><br><input type="text"  id="{{logo.name}}" name="{{logo.name}}" placeholder="Your response"><br></div>
+	    </div>
+	  </div>
+	</div>
+	<br><br><br>
+	<div ng-show="!(logos| filter:name).length" class="alert alert-danger" role="alert">There are no more logos available</div>
+	<div ng-show="errorMessage" class="alert alert-danger" role="alert" ng-bind-html="errorMessage"></div>
+	<div ng-show="(logos| filter:name).length">
+		Brand:
+		<select ng-model="newlogo">
+	    	<option ng-repeat="logo in logos" value="{{logo.name}}">{{logo.name}}</option>
+		</select>
+		or
+		<input type="text" ng-model="newlogo"/>
+		<button ng-click="add()">Add</button><br>
+	</div>
+	<button ng-click="validate()">Validate</button><br><br>
+	<div>Version 1.0.0 - Copyright © 2017 [ Logo Game ]. All rights reserved.</div>
+</div>
+</body>
+</html>
