@@ -4,7 +4,7 @@
 
 # UX continuous integration and dojo:
 
-[hello](https://noraui.github.io/demo/hello).
+[Hello](https://noraui.github.io/demo/hello).
 
 [Logo Game V1](https://noraui.github.io/demo/logogame/v1/).
 
