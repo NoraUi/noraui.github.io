@@ -1,6 +1,6 @@
 # Documentation:
 
-[Public website for NoraUi (Non-Regression Automation for User Interface)](https://noraui.github.io/).
+[Public website for NoraUi (Non-Regression Automation for User Interfaces)](https://noraui.github.io/).
 
 # UX continuous integration and dojo:
 
