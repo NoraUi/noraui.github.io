@@ -4,10 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" />
-<link rel="stylesheet"
-	href="https://www.w3schools.com/lib/w3-theme-teal.css" />
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
 <body>
 
 	<!-- Header -->
@@ -22,8 +20,7 @@
 		<div class="w3-third">
 			<div class="w3-card-2 w3-padding-top" style="min-height: 460px">
 				<h4>Data Provider</h4>
-				<br /> <i class="fa fa-database w3-margin-bottom w3-text-theme"
-					style="font-size: 120px"></i>
+				<br /> <i class="fa fa-database w3-margin-bottom w3-text-theme" style="font-size: 120px"> </i>
 				<p>Excel</p>
 				<p>CSV</p>
 				<p>SQL</p>
@@ -33,8 +30,7 @@
 		<div class="w3-third">
 			<div class="w3-card-2 w3-padding-top" style="min-height: 460px">
 				<h4>Features</h4>
-				<br /> <i class="fa fa-cogs w3-margin-bottom w3-text-theme"
-					style="font-size: 120px"></i>
+				<br /> <i class="fa fa-cogs w3-margin-bottom w3-text-theme" style="font-size: 120px"> </i>
 				<p></p>
 				<p></p>
 				<p></p>
@@ -45,8 +41,7 @@
 		<div class="w3-third">
 			<div class="w3-card-2 w3-padding-top" style="min-height: 460px">
 				<h4>Run Anywhere</h4>
-				<br /> <i class="fa fa-desktop w3-margin-bottom w3-text-theme"
-					style="font-size: 120px"></i>
+				<br /> <i class="fa fa-desktop w3-margin-bottom w3-text-theme" style="font-size: 120px"> </i>
 				<p>Windows</p>
 				<p>Unix</p>
 				<p>Mac Os</p>
@@ -79,8 +74,74 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<hr>
 
+	<h2 class="w3-center">Documentation</h2>
+	<div class="w3-border">
+		<div class="w3-bar w3-theme">
+			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'InstallationInstructions')">Installation Instructions</button>
+			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'QuickStartGuide')">Quick Start Guide</button>
+			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'ContinuousIntegration')">Continuous Integration</button>
+		</div>
+
+		<div id="InstallationInstructions" class="w3-container doc w3-animate-opacity">
+			<h2>Installation Instructions</h2>
+			<p>
+				NORA-UI is a Maven project, You can use <a href="https://github.com/NoraUi/noraui-archetype" target="_blank">Noraui Archetype</a> to create your robot. <br /> In this chapter we will see together how to create a new Nora-UI project.
+			</p>
+			<p>
+				<b>Archetype catalog configuration</b><br /> <span class="w3-code notranslate htmlHigh"> <?xml version="1.0" encoding="UTF-8"?> <archetype-catalog xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd" xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <archetypes> <archetype> <groupId>com.github.noraui</groupId> <artifactId>noraui-archetype</artifactId> <version>2.0.0</version> <description>Maven archetype for use a NORA-UI project</description> </archetype> </archetypes> </archetype-catalog>
+				</span>
+			</p>
+			<p>
+				<b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.0.0<br /> Next<br /> <img src="img/archetype.png" alt="archetype" style="width: 40%"><br /> Finish
+			</p>
+		</div>
+
+		<div id="QuickStartGuide" class="w3-container doc w3-animate-opacity">
+			<h2>Quick Start Guide</h2>
+			<p>In this chapter we will see together how to start.</p>
+			<p>...</p>
+		</div>
+
+		<div id="ContinuousIntegration" class="w3-container doc w3-animate-opacity">
+			<h2>Continuous Integration</h2>
+			<p>The use of Nora-UI is achieved through continuous integration.</p>
+			<p>In this chapter we will see together how to configure a Jenkins and reap the results on a daily basis.</p>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="w3-container w3-theme-dark w3-padding-16">
+		<h3>NORA_UI</h3>
+		<p>
+			Powered by <a href="https://github.com/NoraUi" target="_blank">NoraUi Organization</a>
+		</p>
+		<div style="position: relative; bottom: 55px;" class="w3-tooltip w3-right">
+			<span class="w3-text w3-theme-light w3-padding">Go To Top</span>  <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge"> <i class="fa fa-chevron-circle-up"></i></span></a>
+		</div>
+		<p>
+			Copyright (c) 2017 <a href="https://github.com/NoraUi" target="_blank">NoraUi Organization</a> All rights reserved.  
+		</p>
+	</footer>
+
+	<script>
+		function openDoc(evt, cityName) {
+			var i;
+			var x = document.getElementsByClassName("doc");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			var activebtn = document.getElementsByClassName("docbtn");
+			for (i = 0; i < x.length; i++) {
+				activebtn[i].className = activebtn[i].className.replace(
+						" w3-dark-grey", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " w3-dark-grey";
+		}
+		document.getElementsByClassName("docbtn")[0].click();
+	</script>
 </body>
 </html>
