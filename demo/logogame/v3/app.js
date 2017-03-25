@@ -36,7 +36,7 @@
         if (!$rootScope.language) {
         	$rootScope.language = "en";
         }
-    	$translatePartialLoader.addPart("../i18n/lang");
+    	$translatePartialLoader.addPart("i18n/lang");
 	    $translate.refresh();
 	    $translate.use($rootScope.language);
 	    $cookieStore.put('logogame.language', $rootScope.language);
