@@ -1,6 +1,6 @@
 <h1>{{ 'HI' | translate }} {{vm.user.firstName}}!</h1>
 <p>{{ 'YOU_ARE_LOGGED_IN' | translate }}</p>
-<p><a href="#/login" class="btn btn-primary">{{ 'LOGOUT' | translate }}</a></p>
+<p><a href="#/login" class="btn btn-primary" ng-show="$root.showLogout">{{ 'LOGOUT' | translate }}</a></p>
 <h3 id="title">{{ 'LANG' | translate }}:</h3>
 <select ng-model="$root.language" ng-change="changeLang();">
     <option value="de">{{ 'LANGUAGE.DE' | translate }}</option>
