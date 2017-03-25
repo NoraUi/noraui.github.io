@@ -9,6 +9,7 @@
     function LoginController($rootScope, $scope, $translate, $translatePartialLoader, $location, AuthenticationService, FlashService) {
     	
     	var vm = this;
+    	$rootScope.showLogout = true;
 
         vm.login = login;
 
