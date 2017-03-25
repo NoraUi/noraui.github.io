@@ -1,7 +1,7 @@
 {
-    "userName":"user";
-    "password":"user";
-    "firstName":"John";
-    "lastName":"Doe";
-    "role":"user";
+    "userName":"user",
+    "password":"user",
+    "firstName":"John",
+    "lastName":"Doe",
+    "role":"user"
 }
