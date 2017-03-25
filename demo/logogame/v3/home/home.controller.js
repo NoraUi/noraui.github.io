@@ -12,7 +12,7 @@
         vm.user = null;
        
         $scope.loadCurrentUser = function () {
-            UserService.GetByUsername($rootScope.globals.currentUser.userName).then(
+            UserService.GetByUsername($rootScope.globals.currentUser.username).then(
                 function (user) {
                     vm.user = user;
                 });

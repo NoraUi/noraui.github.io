@@ -18,8 +18,8 @@
             return $http.get('api/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
         }
 
-        function GetByUsername(userName) {
-            return $http.get('api/users/' + userName).then(handleSuccess, handleError('Error getting user by userName'));
+        function GetByUsername(username) {
+            return $http.get('api/users/' + username).then(handleSuccess, handleError('Error getting user by username'));
         }
 
         function handleSuccess(res) {

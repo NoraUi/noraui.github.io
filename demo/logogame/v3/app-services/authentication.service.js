@@ -15,19 +15,19 @@
 
         return service;
 
-        function Login(userName, password, callback) {
-            $http.get('api/authenticate', { userName: userName, password: password })
+        function Login(username, password, callback) {
+            $http.get('api/authenticate', { username: username, password: password })
                 .success(function (response) {
                     callback(response);
                 });
         }
 
-        function SetCredentials(userName, password) {
-            var authdata = Base64.encode(userName + ':' + password);
+        function SetCredentials(username, password) {
+            var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
-                	userName: userName,
+                	username: username,
                     authdata: authdata
                 }
             };

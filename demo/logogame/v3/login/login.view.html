@@ -1,10 +1,14 @@
 <div class="col-md-6 col-md-offset-3">
     <h2>{{ 'TITLE' | translate }}</h2>
     <form name="form" ng-submit="vm.login()" role="form">
-        <div class="form-group" ng-class="{ 'has-error': form.userName.$dirty && form.userName.$error.required }">
-            <label for="userName">{{ 'USERNAME' | translate }}</label>
-            <input type="text" name="userName" id="userName" class="form-control" ng-model="vm.userName" required />
-            <span ng-show="form.userName.$dirty && form.userName.$error.required" class="help-block">Username is required</span>
+        <div id="account-menu">
+            <div id="login"></div>
+            <div id="logout"></div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="username">{{ 'USERNAME' | translate }}</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
         </div>
         <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
             <label for="password">{{ 'PASSWORD' | translate }}</label>

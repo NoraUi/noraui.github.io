@@ -19,9 +19,9 @@
 
         function login() {
             vm.dataLoading = true;
-            AuthenticationService.Login(vm.userName, vm.password, function (response) {
-                if (vm.userName!="" && response.success) {
-                    AuthenticationService.SetCredentials(vm.userName, vm.password);
+            AuthenticationService.Login(vm.username, vm.password, function (response) {
+                if (vm.username!="" && response.success) {
+                    AuthenticationService.SetCredentials(vm.username, vm.password);
                     $location.path('/');
                     if(response.message === "sso"){
                     	$rootScope.showLogout = false;
