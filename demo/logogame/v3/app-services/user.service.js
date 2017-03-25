@@ -15,11 +15,11 @@
         return service;
 
         function GetById(id) {
-            return $http.get('/wiitty/api/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
+            return $http.get('api/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
         }
 
         function GetByUsername(userName) {
-            return $http.get('/wiitty/api/users/' + userName).then(handleSuccess, handleError('Error getting user by userName'));
+            return $http.get('api/users/' + userName).then(handleSuccess, handleError('Error getting user by userName'));
         }
 
         function handleSuccess(res) {
