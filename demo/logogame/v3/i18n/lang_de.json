@@ -1,0 +1,21 @@
+{
+	"LANG":"Wählen Sie eine Sprache",
+	"LANGUAGE" : {
+	    "DE":"Deutsch",
+		"EN":"Englisch",
+		"ES":"Spanisch",
+		"FR":"Französisch",
+	    "IT":"Italienisch"
+	},
+	"USERNAME":"Benutzername",
+	"PASSWORD":"Passwort",
+	"LOGIN":"Anmeldung",
+	"LOGOUT":"Ausloggen",
+	"USERNAME_OR_PASSWORD_IS_INCORRECT":"Benutzername oder Passwort ist falsch",
+	"ALLSCENARIOS":"Alle Szenarien",
+	"RUN":"Lauf",
+	"HI":"Hallo",
+	"YOU_ARE_LOGGED_IN":"Sie sind angemeldet!!",
+	"TITLE": "WIITTY Manger",
+	"VERSION": "Version 1.0.0 - Copyright © 2016-2017 [ Wiitty Manager ]. Alle Rechte vorbehalten."
+}

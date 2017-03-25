@@ -1,0 +1,16 @@
+<h1>{{ 'HI' | translate }} {{vm.user.firstName}}!</h1>
+<p>{{ 'YOU_ARE_LOGGED_IN' | translate }}</p>
+<p><a href="#/login" class="btn btn-primary" ng-show="$root.showLogout">{{ 'LOGOUT' | translate }}</a></p>
+<h3 id="title">{{ 'LANG' | translate }}:</h3>
+<select ng-model="$root.language" ng-change="changeLang();">
+    <option value="de">{{ 'LANGUAGE.DE' | translate }}</option>
+    <option value="en">{{ 'LANGUAGE.EN' | translate }}</option>
+    <option value="es">{{ 'LANGUAGE.ES' | translate }}</option>
+    <option value="fr">{{ 'LANGUAGE.FR' | translate }}</option>
+    <option value="it">{{ 'LANGUAGE.IT' | translate }}</option>
+</select>
+<h3 id="title">{{ 'ALLSCENARIOS' | translate }}:</h3>
+<select ng-model="runScenarioId">
+    <option ng-repeat="scenario in scenarios" value="{{scenario.scenarioId}}">{{ scenario.title }}</option>
+</select>
+<button ng-click="runScenario();" class="btn btn-primary">{{ 'RUN' | translate }}</button>
