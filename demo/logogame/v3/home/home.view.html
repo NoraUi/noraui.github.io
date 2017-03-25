@@ -9,8 +9,3 @@
     <option value="fr">{{ 'LANGUAGE.FR' | translate }}</option>
     <option value="it">{{ 'LANGUAGE.IT' | translate }}</option>
 </select>
-<h3 id="title">{{ 'ALLSCENARIOS' | translate }}:</h3>
-<select ng-model="runScenarioId">
-    <option ng-repeat="scenario in scenarios" value="{{scenario.scenarioId}}">{{ scenario.title }}</option>
-</select>
-<button ng-click="runScenario();" class="btn btn-primary">{{ 'RUN' | translate }}</button>

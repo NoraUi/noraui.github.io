@@ -12,10 +12,9 @@
 	"LOGIN":"Iniciar sesión",
 	"LOGOUT":"Cerrar sesión",
 	"USERNAME_OR_PASSWORD_IS_INCORRECT":"Nombre de usuario o contraseña incorrecta",
-	"ALLSCENARIOS":"Todos los escenarios",
 	"RUN":"Correr",
 	"HI":"Hola",
 	"YOU_ARE_LOGGED_IN":"Has iniciado sesión!!",
-	"TITLE": "WIITTY Manger",
+	"TITLE": "Logotipos de juegos",
 	"VERSION": "Version 3.0.0 - Copyright © 2017 [ Logo Game ]. Todos los derechos reservados."
 }
