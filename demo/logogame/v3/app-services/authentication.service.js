@@ -16,7 +16,7 @@
         return service;
 
         function Login(userName, password, callback) {
-            $http.post('api/authenticate', { userName: userName, password: password })
+            $http.get('api/authenticate', { userName: userName, password: password })
                 .success(function (response) {
                     callback(response);
                 });
