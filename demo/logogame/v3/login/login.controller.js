@@ -20,7 +20,7 @@
         function login() {
             vm.dataLoading = true;
             AuthenticationService.Login(vm.userName, vm.password, function (response) {
-                if (response.success) {
+                if (vm.userName!="" && response.success) {
                     AuthenticationService.SetCredentials(vm.userName, vm.password);
                     $location.path('/');
                     if(response.message === "sso"){
