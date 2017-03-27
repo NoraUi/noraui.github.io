@@ -9,3 +9,5 @@
 [Logo Game V1](https://noraui.github.io/demo/logogame/v1/).
 
 [Logo Game V2](https://noraui.github.io/demo/logogame/v2/).
+
+[Logo Game V3](https://noraui.github.io/demo/logogame/v3/).
