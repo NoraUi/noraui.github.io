@@ -1,9 +1,9 @@
 <div class="col-md-6 col-md-offset-3">
     <h2>{{ 'TITLE' | translate }}</h2>
     <form name="form" ng-submit="vm.login()" role="form">
-        <div id="account-menu">
-            <div id="login"> </div>
-            <div id="logout"> </div>
+        <div id="account-menu">Account
+            <div id="login">Sign in</div>
+            <div id="logout">Register</div>
         </div>
         <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
             <label for="username">{{ 'USERNAME' | translate }}</label>
