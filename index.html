@@ -13,108 +13,16 @@
 	<!-- Header -->
 	<header class="w3-container w3-theme w3-padding" id="myHeader">
 		<div class="w3-center">
-			<h4>Non-Regression Automation for User Interface</h4>
-			<h1 class="w3-xxxlarge w3-animate-bottom">NORA UI</h1>
+			
+			<h1 class="w3-xxxlarge w3-animate-bottom">
+				<a href="#" onclick="openDoc(event,'Home')"><img style="width: 10%" src="img/noraui.png" alt="NoraUi"/></a>
+			</h1>
+			<h4>Non-Regression Automation for User Interfaces</h4>
 		</div>
 	</header>
-
-	<div class="w3-container w3-padding">
-		<p>Many, perhaps most, software applications today are written as web-based applications to be run in an Internet browser. The effectiveness of testing these applications varies widely among companies and organizations. In an era of highly interactive and responsive software processes where many organizations are using some form of Agile methodology, test automation is frequently becoming a requirement for software projects. Test automation is often the answer. Test automation means using a software tool to run repeatable tests against the application to be tested. For regression testing this provides that responsiveness.</p>
-		<p>There are many advantages to test automation. Most are related to the repeatability of the tests and the speed at which the tests can be executed. There are a number of commercial and open source tools available for assisting with the development of test automation. Nora-UI is probably the open source solution you can use. This user's guide will assist new users in learning effective techniques in building test automation for web applications.</p>
-		<p>This user's guide introduces Nora-UI, teaches its features, and presents commonly used best practices accumulated from the Nora-UI community. Many examples are provided. Also, technical information on the internal structure of Nora-UI and recommended uses of Nora-UI are provided.</p>
-		<p>Test automation has specific advantages for improving the long-term efficiency of a software team's testing processes. Test automation supports:
-		<ul>
-			<li>Frequent regression testing</li>
-			<li>Rapid feedback to developers</li>
-			<li>Virtually unlimited iterations of test case execution</li>
-			<li>Support for Agile and extreme development methodologies</li>
-			<li>Disciplined documentation of test cases</li>
-			<li>Customized defect reporting</li>
-			<li>Finding defects missed by manual testing</li>
-
-		</ul>
-		<p>It is not always advantageous to automate test cases. There are times when manual testing may be more appropriate. For instance, if the application's user interface will change considerably in the near future, then any automation might need to be rewritten anyway. Also, sometimes there simply is not enough time to build test automation. For the short term, manual testing may be more effective. If an application has a very tight deadline, there is currently no test automation available, and it's imperative that the testing get done within that time frame, then manual testing is the best solution.</p>
-	</div>
-
-	<div class="w3-row-padding w3-center w3-margin-top">
-		<div class="w3-third">
-			<div class="w3-card-2 w3-padding-top" style="min-height: 460px">
-				<h4>Data Provider</h4>
-				<br /> <i class="fa fa-database w3-margin-bottom w3-text-theme" style="font-size: 120px"> </i>
-				<p>Excel</p>
-				<p>CSV</p>
-				<p>SQL</p>
-			</div>
-		</div>
-
-		<div class="w3-third">
-			<div class="w3-card-2 w3-padding-top" style="min-height: 460px">
-				<h4>Features</h4>
-				<br /> <i class="fa fa-cogs w3-margin-bottom w3-text-theme" style="font-size: 120px"> </i>
-				<p></p>
-				<p></p>
-				<p></p>
-				<p></p>
-			</div>
-		</div>
-
-		<div class="w3-third">
-			<div class="w3-card-2 w3-padding-top" style="min-height: 460px">
-				<h4>Run Anywhere</h4>
-				<br /> <i class="fa fa-desktop w3-margin-bottom w3-text-theme" style="font-size: 120px"> </i>
-				<p>Windows</p>
-				<p>Unix</p>
-				<p>Mac Os</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="w3-container w3-center">
-		<hr>
-		<h3>Customer Success</h3>
-	</div>
-
-	<div class="w3-row-padding">
-		<div class="w3-third">
-			<div class="w3-card-2">
-				<img src="img/Sopra-Steria_logo.png" alt="Sopra-Steria" style="width: 100%">
-			</div>
-		</div>
-		<div class="w3-third">
-			<div class="w3-card-4">
-				<img src="img/obs_logo.png" alt="OBS" style="width: 100%">
-			</div>
-		</div>
-		<div class="w3-third">
-			<div class="w3-card-4">
-				<img src="img/orange.png" alt="Orange" style="width: 100%">
-			</div>
-		</div>
-	</div>
-	<br />
-	<div class="w3-row-padding">
-		<div class="w3-third">
-			<div class="w3-card-2">
-				<img src="img/jhipster.png" alt="JHipster" style="width: 100%">
-			</div>
-		</div>
-		<div class="w3-third">
-			<div class="w3-card-8">
-				<img src="img/tp_logo.png" alt="Tests Psychotechniques" style="width: 100%">
-			</div>
-		</div>
-		<!--         <div class="w3-third"> -->
-		<!--             <div class="w3-card-8"> -->
-		<!--                 <img src="img/xxxx.png" alt="xxxx" style="width: 100%"> -->
-		<!--             </div> -->
-		<!--         </div> -->
-	</div>
-
-	<hr>
-
-	<h2 class="w3-center">Documentation</h2>
 	<div class="w3-border">
 		<div class="w3-bar w3-theme">
+			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'Home')">Home</button>
 			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'InstallationInstructions')">Installation Instructions</button>
 			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'QuickStartGuide')">Quick Start Guide</button>
 			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'ContinuousIntegration')">Continuous Integration</button>
@@ -126,11 +34,12 @@
 				NORA-UI is a Maven project, You can use <a href="https://github.com/NoraUi/noraui-archetype" target="_blank">Noraui Archetype</a> to create your robot. <br /> In this chapter we will see together how to create a new Nora-UI project.
 			</p>
 			<p>
-				<b>Archetype catalog configuration</b>
+				<b>Archetype catalog configuration</b><br/>
+				Create or edit the <i>archetype-catalog.xml</i> file in your .m2 repository and the following content:
+
 				<br />
 				<pre class="language-markup">
-					<code>
-&lt;?xml version="1.0" encoding="UTF-8"?>
+<code>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;archetype-catalog
 xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd"
 xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0"
@@ -143,19 +52,87 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	        &lt;description>Maven archetype for use a NORA-UI project&lt;/description>
         &lt;/archetype>
     &lt;/archetypes>
-&lt;/archetype-catalog>
-</code>
+&lt;/archetype-catalog></code>
 			    </pre>
 			</p>
 			<p>
-				<b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.1.1-SNAPSHOT<br /> Next<br /> <img src="img/archetype.png" alt="archetype" style="width: 40%"><br /> Finish
+				<b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.1.1-SNAPSHOT<br /> Next
+				<div class="w3-row-padding w3-center w3-margin-top">
+				<div class="w3-third">
+					<div class="w3-card-4">
+					  <img src="img/archetype.png" alt="archetype" style="width: 100%">
+					  <div class="w3-container w3-light-gray">
+					  	<small>Using NoraUi archetype in new Maven project Eclipse wizard</small>
+						</div>
+					</div> 
+				</div>
+				</div>
+				<p>Finish</p>
 			</p>
 		</div>
 
 		<div id="QuickStartGuide" class="w3-container doc w3-animate-opacity">
 			<h2>Quick Start Guide</h2>
-			<p>In this chapter we will see together how to start.</p>
-			<p>...</p>
+			<h3>Create a new test scenario</h3>
+			<h4>1. Create a feature file</h4>
+			<p>In your <i>src/test/resources/steps</i> folder, add a new file with the extension .feature.<br/>Name it as the tag it will contain. This tag will be used after to launch a scenario. <br/>You can move your scenario in any folder structure below <i>/step</i> folder.</p>
+			<div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
+				<div class="w3-quarter">
+					<div class="w3-card-4">
+					  <img src="img/quickstart-1.1.png" alt="archetype" style="width: 100%">
+					  <div class="w3-container w3-light-gray">
+					  	<small>Adding a new feature in your project</small>
+						</div>
+					</div> 
+				</div>
+			</div>
+			The next step is to modify the <i>src/main/resources/scenarios.properties</i> configuration file in order to indicate the path to the feature file among existing ones.<br/>
+			This configuration file is used by NoraUi to map a tag and a path.
+			<div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
+				<div class="w3-half">
+					<div class="w3-card-4">
+					  <img src="img/quickstart-1.2.png" alt="archetype" style="width: 100%">
+					  <div class="w3-container w3-light-gray">
+					  	<small>Setting up scenarios.properties</small>
+						</div>
+					</div> 
+				</div>
+			</div>
+			We can now go back to our feature and add some basic content and a new step.<br/>
+			Copy these few lines to MyNewFeature.feature.
+			<pre class="language-gherkin">
+<code>@MyNewFeature
+Feature: My new feature
+	Scenario Outline: My new feature scenario 
+		When I click on 'mypackage.MyPage-myElement'.
+    Examples:
+    #DATA
+    |id|
+    |1|
+    #END</code>
+			    </pre>
+			You can notice that we used "I click on 'mypackage.MyPage-myElement'." step which comes directly from NoraUI framework.<br/>
+			When you write a feature, you have 2 possibilities when searching for steps:
+			<ul>
+				<li>You can use an existing one (from your project or from NoraUi)</li>
+				<li>You can create a new one and then implement it</li>
+			</ul>
+			<div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
+				<p>Here is a piece of advice for Eclipse: there is a very useful Cucumber-Eclipse plugin very that you can install via "Install New Software" menu via this address <a href="#">https://cucumber.io/cucumber-eclipse//update-site</a>.<br/>The plugin indicates for example, non-implemented steps via highlighting, or existing steps via auto-completion (Ctrl+Space) as you can see on the screenshot below.</p>
+			</div>
+			<div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
+				<div class="w3-half">
+					<div class="w3-card-4">
+					  <img src="img/quickstart-1.3.png" alt="archetype" style="width: 100%">
+					  <div class="w3-container w3-light-gray">
+					  	<small>Example of auto-completion for existing steps</small>
+						</div>
+					</div> 
+				</div>
+			</div>
+			Let's focus now on the structure of the added steps within our new scenario.<br/>
+			<b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b><br/>
+			The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">"pages" subpackages</span> of your project.
 		</div>
 
 		<div id="ContinuousIntegration" class="w3-container doc w3-animate-opacity">
@@ -163,19 +140,121 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 			<p>The use of Nora-UI is achieved through continuous integration.</p>
 			<p>In this chapter we will see together how to configure a Jenkins and reap the results on a daily basis.</p>
 		</div>
+	
+	<div id="Home" class="w3-container doc w3-animate-opacity">
+	<div class="w3-row-padding w3-center w3-margin-top">
+			<div class="w3-third">
+				<div class="w3-card-2" style="min-height: 460px">
+					<div class="w3-container w3-green"><h3>Data</h3></div>
+					<br /> <i class="fa fa-database w3-margin-bottom w3-text-green" style="font-size: 120px"> </i>
+					<p>Choose your Input Data Provider</p>
+					<p>Excel</p>
+					<p>CSV</p>
+					<p>SQL</p>
+					<p>...</p>
+					<p>or implement yours</p>
+					<p>
+				</div>
+			</div>
+
+			<div class="w3-third">
+				<div class="w3-card-2" style="min-height: 460px">
+					<div class="w3-container w3-blue"><h3>Features</h3></div>
+					<br /> <i class="fa fa-cogs w3-margin-bottom w3-text-blue" style="font-size: 120px"></i>
+					<p>Reworked Selenium methods</p>
+					<p>Error management</p>
+					<p>Reporting</p>
+					<p>Conditioned steps</p>
+					<p>Loop steps</p>
+					<p>Configuration management</p>
+				</div>
+			</div>
+
+			<div class="w3-third">
+				<div class="w3-card-2" style="min-height: 460px">
+				<div class="w3-container w3-red"><h3>Run from Anywhere on Everything</h3></div>
+					<br /> <i class="fa fa-desktop w3-margin-bottom w3-text-red" style="font-size: 120px"></i>
+					<p>Windows/Unix/Mac OS portability</p>
+					<p>Independent of front-end web apps technologies</p>
+				</div>
+			</div>
+		</div>
+			<p>Many, perhaps most, software applications today are written as web-based applications to be run in an Internet browser. The effectiveness of testing these applications varies widely among companies and organizations. In an era of highly interactive and responsive software processes where many organizations are using some form of Agile methodology, test automation is frequently becoming a requirement for software projects. Test automation is often the answer. Test automation means using a software tool to run repeatable tests against the application to be tested. For regression testing this provides that responsiveness.</p>
+			<p>There are many advantages to test automation. Most are related to the repeatability of the tests and the speed at which the tests can be executed. There are a number of commercial and open source tools available for assisting with the development of test automation. Nora-UI is probably the open source solution you can use. This user's guide will assist new users in learning effective techniques in building test automation for web applications.</p>
+			<p>This user's guide introduces Nora-UI, teaches its features, and presents commonly used best practices accumulated from the Nora-UI community. Many examples are provided. Also, technical information on the internal structure of Nora-UI and recommended uses of Nora-UI are provided.</p>
+			<p>Test automation has specific advantages for improving the long-term efficiency of a software team's testing processes. Test automation supports:
+			<ul>
+				<li>Frequent regression testing</li>
+				<li>Rapid feedback to developers</li>
+				<li>Virtually unlimited iterations of test case execution</li>
+				<li>Support for Agile and extreme development methodologies</li>
+				<li>Disciplined documentation of test cases</li>
+				<li>Customized defect reporting</li>
+				<li>Finding defects missed by manual testing</li>
+
+			</ul>
+			<p>It is not always advantageous to automate test cases. There are times when manual testing may be more appropriate. For instance, if the application's user interface will change considerably in the near future, then any automation might need to be rewritten anyway. Also, sometimes there simply is not enough time to build test automation. For the short term, manual testing may be more effective. If an application has a very tight deadline, there is currently no test automation available, and it's imperative that the testing get done within that time frame, then manual testing is the best solution.</p>
+
+		
+
+		<div class="w3-container w3-center">
+			<hr>
+			<h3>Customer Success</h3>
+		</div>
+
+		<div class="w3-row-padding">
+			<div class="w3-quarter">
+				<div class="w3-card-2">
+					<img src="img/Sopra-Steria_logo.png" alt="Sopra-Steria" style="width: 100%">
+				</div>
+			</div>
+			<div class="w3-quarter">
+				<div class="w3-card-2">
+					<img src="img/obs_logo.png" alt="OBS" style="width: 100%">
+				</div>
+			</div>
+			<div class="w3-quarter">
+				<div class="w3-card-2">
+					<img src="img/orange.png" alt="Orange" style="width: 100%">
+				</div>
+			</div>
+			<div class="w3-quarter">
+				<div class="w3-card-2">
+					<img src="img/jhipster.png" alt="JHipster" style="width: 100%">
+				</div>
+			</div>
+		</div>
+		<br/>
 	</div>
+	
+	<!-- <br />
+	<div class="w3-row-padding">
+		
+		<div class="w3-quarter">
+			<div class="w3-card-8">
+				<img src="img/tp_logo.png" alt="Tests Psychotechniques" style="width: 100%">
+			</div>
+		</div>
+		        <div class="w3-third">
+		<!--             <div class="w3-card-8"> -->
+		<!--                 <img src="img/xxxx.png" alt="xxxx" style="width: 100%"> -->
+		<!--             </div> -->
+		<!--         </div>
+	</div> -->
+
+	
 
 	<!-- Footer -->
-	<footer class="w3-container w3-theme-dark w3-padding-16">
-		<h3>NORA-UI</h3>
+	<footer class="w3-container w3-theme w3-padding-16">
+		<h4>NORA-UI</h4>
 		<p>
-			Powered by <a href="https://github.com/NoraUi" target="_blank">NoraUi Organization</a>
+			<small>Powered by <a href="https://github.com/NoraUi" target="_blank">NoraUi Organization</a></small>
 		</p>
 		<div style="position: relative; bottom: 55px;" class="w3-tooltip w3-right">
 			<span class="w3-text w3-theme-light w3-padding">Go To Top</span>  <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge"> <i class="fa fa-chevron-circle-up"></i></span></a>
 		</div>
 		<p>
-			Copyright (c) 2017 <a href="https://github.com/NoraUi" target="_blank">NoraUi Organization</a> All rights reserved.  
+			<small>Copyright (c) 2017 <a href="https://github.com/NoraUi" target="_blank">NoraUi Organization</a> All rights reserved.</small>  
 		</p>
 	</footer>
 
