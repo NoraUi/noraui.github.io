@@ -11,7 +11,7 @@
 <body>
 
 	<!-- Header -->
-	<header class="w3-container w3-theme w3-padding" id="myHeader">
+	<header class="w3-container w3-theme" id="myHeader">
 		<div class="w3-center">
 			
 			<h1 class="w3-xxxlarge w3-animate-bottom">
@@ -131,8 +131,45 @@ Feature: My new feature
 				</div>
 			</div>
 			Let's focus now on the structure of the added steps within our new scenario.<br/>
-			<b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b><br/>
-			The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">"pages" subpackages</span> of your project.
+			<div class="w3-margin-left">
+			<b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b></div>
+			The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">'pages' subpackages</span> of your project.<br/>
+			Just with analysing this step, we have introduced some new concepts (Step, Page, PageElement, packages) about NoraUi architecture. So let's explain quickly the different layers of NoraUi structure.
+			<div class="w3-panel w3-border w3-light-grey">
+				<div class="w3-margin-top w3-margin-bottom">
+					<div class="w3-third w3-margin-left w3-center w3-right">
+						<div class="w3-card-4">
+						  <img src="img/architecture/architecture.gif" alt="archetype" style="width: 100%">
+						  <div class="w3-container w3-light-gray">
+						  	<small>The 4 NoraUi architecture layers</small>
+							</div>
+						</div>
+					</div>
+					<ul class="w3-ul">
+					    <li>
+					      <h4>Gherkin Scenario</h4>
+					      <p>The Gherkin layer represents the functional actions to execute within your test. It is the highest abstraction level of your scenario.</p>
+					    </li>
+					    <li>
+					      <h4>Steps</h4>
+					      <p>Steps layer represents all the glue code that will be available to be used from Gherkin scenario features. All Steps classes are included under the 'steps' package. This is true for both your project and NoraUi framework. The Steps will contains all your tests behaviors (web driver actions, checks...) that you can split into different classes and sub-package related to your business needs.</p>
+					    </li>
+					    <li>
+					      <h4>Pages</h4>
+					      <p>Pages layer represents your target applications by defining their structures in PageElements that are used in step actions. All Pages classes can be distributed into differents 'page' sub-packages depending on the business domains they belong to. No behavior should be done in these classes except some minor validations. Behaviors are done in the upper layer (Steps).</p>
+					    </li>
+					    <li>
+					      <h4>Selectors</h4>
+					      <p>The last layer is the one which is the closest to remote applications. It contains versioned .ini files by application which define how to retrieve a DOM element using the upper layer (Pages) PageElements. Several solutions are implemented like search by xpaths, class, id...</p>
+					    </li>
+				  	</ul>
+				</div>
+			</div>
+			To conclude this point, every implemented scenario will run the following flow for each line:<br/>
+			<div class="w3-panel w3-blue w3-center">
+			<h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Read the current Gherkin line</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Found the matching Steps method to run</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Get the concerned Page and/or PagesElement</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Retrieve linked selectors</h4><h4 class="w3-opacity"><i class="fa fa-arrow-up"></i> Go back up to the Steps layer to execute the action</h4>
+			</div>
+			So the framework is built to be used beginning from the top layer (closer to functional/business needs) to the bottom one (closer to target applications structures).
 		</div>
 
 		<div id="ContinuousIntegration" class="w3-container doc w3-animate-opacity">
