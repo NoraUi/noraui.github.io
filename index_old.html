@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<title>Nora UI</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css" />
+<link rel="stylesheet" href="css/prism.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
+<script type="text/javascript" src="js/prism.js"></script>
+<body>
+
+	<!-- Header -->
+	<header class="w3-container w3-theme" id="myHeader">
+		<div class="w3-center">
+			
+			<h1 class="w3-xxxlarge w3-animate-bottom">
+				<a href="#" onclick="openDoc(event,'Home')"><img style="width: 10%" src="img/noraui.png" alt="NoraUi"/></a>
+			</h1>
+			<h4>Non-Regression Automation for User Interfaces</h4>
+		</div>
+	</header>
+	<div class="w3-border">
+		<div class="w3-bar w3-theme">
+			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'Home')">Home</button>
+			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'InstallationInstructions')">Installation Instructions</button>
+			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'QuickStartGuide')">Quick Start Guide</button>
+			<button class="w3-bar-item w3-button docbtn w3-padding-16" onclick="openDoc(event,'ContinuousIntegration')">Continuous Integration</button>
+		</div>
+
+		<div id="InstallationInstructions" class="w3-container doc w3-animate-opacity">
+			<h2>Installation Instructions</h2>
+			<p>
+				NORA-UI is a Maven project, You can use <a href="https://github.com/NoraUi/noraui-archetype" target="_blank">Noraui Archetype</a> to create your robot. <br /> In this chapter we will see together how to create a new Nora-UI project.
+			</p>
+			<p>
+				<b>Archetype catalog configuration</b><br/>
+				Create or edit the <i>archetype-catalog.xml</i> file in your .m2 repository and the following content:
+
+				<br />
+				<pre class="language-markup">
+<code>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;archetype-catalog
+xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd"
+xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    &lt;archetypes>
+        &lt;archetype>
+	        &lt;groupId>com.github.noraui&lt;/groupId>
+	        &lt;artifactId>noraui-archetype&lt;/artifactId>
+	        &lt;version>2.1.1-SNAPSHOT&lt;/version>
+	        &lt;description>Maven archetype for use a NORA-UI project&lt;/description>
+        &lt;/archetype>
+    &lt;/archetypes>
+&lt;/archetype-catalog></code>
+			    </pre>
+			</p>
+			<p>
+				<b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.1.1-SNAPSHOT<br /> Next
+				<div class="w3-row-padding w3-center w3-margin-top">
+				<div class="w3-third">
+					<div class="w3-card-4">
+					  <img src="img/archetype.png" alt="archetype" style="width: 100%">
+					  <div class="w3-container w3-light-gray">
+					  	<small>Using NoraUi archetype in new Maven project Eclipse wizard</small>
+						</div>
+					</div> 
+				</div>
+				</div>
+				<p>Finish</p>
+			</p>
+		</div>
+
+		<div id="QuickStartGuide" class="w3-container doc w3-animate-opacity">
+			<h2>Quick Start Guide</h2>
+			<h3>Create a new test scenario</h3>
+			<h4>1. Create a feature file</h4>
+			<p>In your <i>src/test/resources/steps</i> folder, add a new file with the extension .feature.<br/>Name it as the tag it will contain. This tag will be used after to launch a scenario. <br/>You can move your scenario in any folder structure below <i>/step</i> folder.</p>
+			<div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
+				<div class="w3-quarter">
+					<div class="w3-card-4">
+					  <img src="img/quickstart-1.1.png" alt="archetype" style="width: 100%">
+					  <div class="w3-container w3-light-gray">
+					  	<small>Adding a new feature in your project</small>
+						</div>
+					</div> 
+				</div>
+			</div>
+			The next step is to modify the <i>src/main/resources/scenarios.properties</i> configuration file in order to indicate the path to the feature file among existing ones.<br/>
+			This configuration file is used by NoraUi to map a tag and a path.
+			<div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
+				<div class="w3-half">
+					<div class="w3-card-4">
+					  <img src="img/quickstart-1.2.png" alt="archetype" style="width: 100%">
+					  <div class="w3-container w3-light-gray">
+					  	<small>Setting up scenarios.properties</small>
+						</div>
+					</div> 
+				</div>
+			</div>
+			We can now go back to our feature and add some basic content and a new step.<br/>
+			Copy these few lines to MyNewFeature.feature.
+			<pre class="language-gherkin">
+<code>@MyNewFeature
+Feature: My new feature
+	Scenario Outline: My new feature scenario 
+		When I click on 'mypackage.MyPage-myElement'.
+    Examples:
+    #DATA
+    |id|
+    |1|
+    #END</code>
+			    </pre>
+			You can notice that we used "I click on 'mypackage.MyPage-myElement'." step which comes directly from NoraUI framework.<br/>
+			When you write a feature, you have 2 possibilities when searching for steps:
+			<ul>
+				<li>You can use an existing one (from your project or from NoraUi)</li>
+				<li>You can create a new one and then implement it</li>
+			</ul>
+			<div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
+				<p>Here is a piece of advice for Eclipse: there is a very useful Cucumber-Eclipse plugin very that you can install via "Install New Software" menu via this address <a href="#">https://cucumber.io/cucumber-eclipse//update-site</a>.<br/>The plugin indicates for example, non-implemented steps via highlighting, or existing steps via auto-completion (Ctrl+Space) as you can see on the screenshot below.</p>
+			</div>
+			<div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
+				<div class="w3-half">
+					<div class="w3-card-4">
+					  <img src="img/quickstart-1.3.png" alt="archetype" style="width: 100%">
+					  <div class="w3-container w3-light-gray">
+					  	<small>Example of auto-completion for existing steps</small>
+						</div>
+					</div> 
+				</div>
+			</div>
+			Let's focus now on the structure of the added steps within our new scenario.<br/>
+			<div class="w3-margin-left">
+			<b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b></div>
+			The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">'pages' subpackages</span> of your project.<br/>
+			Just with analysing this step, we have introduced some new concepts (Step, Page, PageElement, packages) about NoraUi architecture. So let's explain quickly the different layers of NoraUi structure.
+			<div class="w3-panel w3-border w3-light-grey">
+				<div class="w3-margin-top w3-margin-bottom">
+					<div class="w3-third w3-margin-left w3-center w3-right">
+						<div class="w3-card-4">
+						  <img src="img/architecture/architecture.gif" alt="archetype" style="width: 100%">
+						  <div class="w3-container w3-light-gray">
+						  	<small>The 4 NoraUi architecture layers</small>
+							</div>
+						</div>
+					</div>
+					<ul class="w3-ul">
+					    <li>
+					      <h4>Gherkin Scenario</h4>
+					      <p>The Gherkin layer represents the functional actions to execute within your test. It is the highest abstraction level of your scenario.</p>
+					    </li>
+					    <li>
+					      <h4>Steps</h4>
+					      <p>Steps layer represents all the glue code that will be available to be used from Gherkin scenario features. All Steps classes are included under the 'steps' package. This is true for both your project and NoraUi framework. The Steps will contains all your tests behaviors (web driver actions, checks...) that you can split into different classes and sub-package related to your business needs.</p>
+					    </li>
+					    <li>
+					      <h4>Pages</h4>
+					      <p>Pages layer represents your target applications by defining their structures in PageElements that are used in step actions. All Pages classes can be distributed into differents 'page' sub-packages depending on the business domains they belong to. No behavior should be done in these classes except some minor validations. Behaviors are done in the upper layer (Steps).</p>
+					    </li>
+					    <li>
+					      <h4>Selectors</h4>
+					      <p>The last layer is the one which is the closest to remote applications. It contains versioned .ini files by application which define how to retrieve a DOM element using the upper layer (Pages) PageElements. Several solutions are implemented like search by xpaths, class, id...</p>
+					    </li>
+				  	</ul>
+				</div>
+			</div>
+			To conclude this point, every implemented scenario will run the following flow for each line:<br/>
+			<div class="w3-panel w3-blue w3-center">
+			<h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Read the current Gherkin line</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Found the matching Steps method to run</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Get the concerned Page and/or PagesElement</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Retrieve linked selectors</h4><h4 class="w3-opacity"><i class="fa fa-arrow-up"></i> Go back up to the Steps layer to execute the action</h4>
+			</div>
+			So the framework is built to be used beginning from the top layer (closer to functional/business needs) to the bottom one (closer to target applications structures).
+		</div>
+
+		<div id="ContinuousIntegration" class="w3-container doc w3-animate-opacity">
+			<h2>Continuous Integration</h2>
+			<p>The use of Nora-UI is achieved through continuous integration.</p>
+			<p>In this chapter we will see together how to configure a Jenkins and reap the results on a daily basis.</p>
+		</div>
+	
+	<div id="Home" class="w3-container doc w3-animate-opacity">
+	<div class="w3-row-padding w3-center w3-margin-top">
+			<div class="w3-third">
+				<div class="w3-card-2" style="min-height: 460px">
+					<div class="w3-container w3-green"><h3>Data</h3></div>
+					<br /> <i class="fa fa-database w3-margin-bottom w3-text-green" style="font-size: 120px"> </i>
+					<p>Choose your Input Data Provider</p>
+					<p>Excel</p>
+					<p>CSV</p>
+					<p>SQL</p>
+					<p>...</p>
+					<p>or implement yours</p>
+					<p>
+				</div>
+			</div>
+
+			<div class="w3-third">
+				<div class="w3-card-2" style="min-height: 460px">
+					<div class="w3-container w3-blue"><h3>Features</h3></div>
+					<br /> <i class="fa fa-cogs w3-margin-bottom w3-text-blue" style="font-size: 120px"></i>
+					<p>Reworked Selenium methods</p>
+					<p>Error management</p>
+					<p>Reporting</p>
+					<p>Conditioned steps</p>
+					<p>Loop steps</p>
+					<p>Configuration management</p>
+				</div>
+			</div>
+
+			<div class="w3-third">
+				<div class="w3-card-2" style="min-height: 460px">
+				<div class="w3-container w3-red"><h3>Run from Anywhere on Everything</h3></div>
+					<br /> <i class="fa fa-desktop w3-margin-bottom w3-text-red" style="font-size: 120px"></i>
+					<p>Windows/Unix/Mac OS portability</p>
+					<p>Independent of front-end web apps technologies</p>
+				</div>
+			</div>
+		</div>
+			<p>Many, perhaps most, software applications today are written as web-based applications to be run in an Internet browser. The effectiveness of testing these applications varies widely among companies and organizations. In an era of highly interactive and responsive software processes where many organizations are using some form of Agile methodology, test automation is frequently becoming a requirement for software projects. Test automation is often the answer. Test automation means using a software tool to run repeatable tests against the application to be tested. For regression testing this provides that responsiveness.</p>
+			<p>There are many advantages to test automation. Most are related to the repeatability of the tests and the speed at which the tests can be executed. There are a number of commercial and open source tools available for assisting with the development of test automation. Nora-UI is probably the open source solution you can use. This user's guide will assist new users in learning effective techniques in building test automation for web applications.</p>
+			<p>This user's guide introduces Nora-UI, teaches its features, and presents commonly used best practices accumulated from the Nora-UI community. Many examples are provided. Also, technical information on the internal structure of Nora-UI and recommended uses of Nora-UI are provided.</p>
+			<p>Test automation has specific advantages for improving the long-term efficiency of a software team's testing processes. Test automation supports:
+			<ul>
+				<li>Frequent regression testing</li>
+				<li>Rapid feedback to developers</li>
+				<li>Virtually unlimited iterations of test case execution</li>
+				<li>Support for Agile and extreme development methodologies</li>
+				<li>Disciplined documentation of test cases</li>
+				<li>Customized defect reporting</li>
+				<li>Finding defects missed by manual testing</li>
+
+			</ul>
+			<p>It is not always advantageous to automate test cases. There are times when manual testing may be more appropriate. For instance, if the application's user interface will change considerably in the near future, then any automation might need to be rewritten anyway. Also, sometimes there simply is not enough time to build test automation. For the short term, manual testing may be more effective. If an application has a very tight deadline, there is currently no test automation available, and it's imperative that the testing get done within that time frame, then manual testing is the best solution.</p>
+
+		
+
+		<div class="w3-container w3-center">
+			<hr>
+			<h3>Customer Success</h3>
+		</div>
+
+		<div class="w3-row-padding">
+			<div class="w3-quarter">
+				<div class="w3-card-2">
+					<img src="img/Sopra-Steria_logo.png" alt="Sopra-Steria" style="width: 100%">
+				</div>
+			</div>
+			<div class="w3-quarter">
+				<div class="w3-card-2">
+					<img src="img/obs_logo.png" alt="OBS" style="width: 100%">
+				</div>
+			</div>
+			<div class="w3-quarter">
+				<div class="w3-card-2">
+					<img src="img/orange.png" alt="Orange" style="width: 100%">
+				</div>
+			</div>
+			<div class="w3-quarter">
+				<div class="w3-card-2">
+					<img src="img/jhipster.png" alt="JHipster" style="width: 100%">
+				</div>
+			</div>
+		</div>
+		<br/>
+	</div>
+	
+	<!-- <br />
+	<div class="w3-row-padding">
+		
+		<div class="w3-quarter">
+			<div class="w3-card-8">
+				<img src="img/tp_logo.png" alt="Tests Psychotechniques" style="width: 100%">
+			</div>
+		</div>
+		        <div class="w3-third">
+		<!--             <div class="w3-card-8"> -->
+		<!--                 <img src="img/xxxx.png" alt="xxxx" style="width: 100%"> -->
+		<!--             </div> -->
+		<!--         </div>
+	</div> -->
+
+	
+
+	<!-- Footer -->
+	<footer class="w3-container w3-theme w3-padding-16">
+		<h4>NORA-UI</h4>
+		<p>
+			<small>Powered by <a href="https://github.com/NoraUi" target="_blank">NoraUi Organization</a></small>
+		</p>
+		<div style="position: relative; bottom: 55px;" class="w3-tooltip w3-right">
+			<span class="w3-text w3-theme-light w3-padding">Go To Top</span>  <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge"> <i class="fa fa-chevron-circle-up"></i></span></a>
+		</div>
+		<p>
+			<small>Copyright (c) 2017 <a href="https://github.com/NoraUi" target="_blank">NoraUi Organization</a> All rights reserved.</small>  
+		</p>
+	</footer>
+
+	<script>
+		function openDoc(evt, cityName) {
+			var i;
+			var x = document.getElementsByClassName("doc");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			var activebtn = document.getElementsByClassName("docbtn");
+			for (i = 0; i < x.length; i++) {
+				activebtn[i].className = activebtn[i].className.replace(
+						" w3-dark-grey", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " w3-dark-grey";
+		}
+		document.getElementsByClassName("docbtn")[0].click();
+	</script>
+</body>
+</html>
