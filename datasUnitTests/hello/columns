@@ -1,0 +1,11 @@
+{
+  columns:[
+    author,
+	zip,
+	city,
+	element,
+	element2,
+	date,
+	title
+  ]
+}
