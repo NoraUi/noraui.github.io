@@ -11,3 +11,8 @@
 [Logo Game V2](https://noraui.github.io/demo/logogame/v2/).
 
 [Logo Game V3](https://noraui.github.io/demo/logogame/v3/).
+
+# License
+
+[![license](https://img.shields.io/github/license/NoraUi/noraui.github.io.svg)](https://github.com/NoraUi/noraui.github.io/blob/master/LICENSE)
+BSD, See LICENSE for details
