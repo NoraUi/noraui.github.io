@@ -42,7 +42,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-eye fa-fw"></i>  Overview</a>
     <a href="#installationInstructions" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Installation Instructions</a>
     <a href="#quickStartGuide" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-graduation-cap fa-fw"></i>  Quick Start Guide</a>
-    <a href="#continuousIntegration" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-bullseye fa-fw"></i>  Continuous Integration</a><br><br>
+    <a href="#continuousIntegration" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-bullseye fa-fw"></i>  Continuous Integration</a>
+    <a href="#customDataProvider" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-database fa-fw"></i>  Custom data provider</a><br><br>
   </div>
 </nav>
 
@@ -64,9 +65,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           <div class="w3-container w3-green"><h3>Data</h3></div>
           <br /> <i class="fa fa-database w3-margin-bottom w3-text-green" style="font-size: 100px"> </i>
           <p>Choose your Input Data Provider</p>
-          <p>Excel</p>
-          <p>CSV</p>
-          <p>SQL</p>
+          <p>Excel (xls, xlsx, xlsm), CSV</p>
+          <p>REST Web Services</p>
+          <p>SQL (MySql, Postgres, Oracle)</p>
           <p>...</p>
           <p>or implement yours</p>
           <p>
@@ -265,6 +266,24 @@ Feature: My new feature
       <h2><i class="fa fa-bullseye"></i> Continuous Integration</h2>
       <p>The use of Nora-UI is achieved through continuous integration.</p>
       <p>In this chapter we will see together how to configure a Jenkins and reap the results on a daily basis.</p>
+    </div>
+
+    <hr id="customDataProvider" style="border-color: teal; margin: 25px;"/>
+    <div class="w3-container">
+      <h2><i class="fa fa-database"></i> Custom data provider</h2>
+      <p>You can create a custom data provider (Java language).</p>
+      <ul>
+        <li>Create a new pakage « noraui.data.xxx » (Example : « noraui.data.json »).</li>
+        <li>Create a new java class (Example : « CustomJsonDataProvider »).</li>
+        <li>Extend this class to “CommonDataProvider » and implement to « DataInputProvider » and « DataOutputProvider ».</li>
+        <li>In your XxxxxRobot.properties file:</li>
+      </ul>
+      <div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
+        # type of dataProvider (EXCEL, CSV, DB, REST, noraui.data.xxx.YourCustomDataProvider)
+        dataProvider.in.type=noraui.data.json.CustomJsonDataProvider
+        dataProvider.out.type=noraui.data.json.CustomJsonDataProvider
+      </div>
+      <p>You can find a sample <a href="https://github.com/NoraUi/noraui.github.io/blob/master/howToUse/CustomJsonDataProvider.java" target="_blank">here</a></p>
     </div>
 
   <!-- Footer -->
