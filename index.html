@@ -133,7 +133,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         &lt;archetype>
           &lt;groupId>com.github.noraui&lt;/groupId>
           &lt;artifactId>noraui-archetype&lt;/artifactId>
-          &lt;version>2.5.3&lt;/version>
+          &lt;version>2.6.0&lt;/version>
           &lt;description>Maven archetype for use a NORA-UI project&lt;/description>
         &lt;/archetype>
     &lt;/archetypes>
@@ -141,7 +141,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           </pre>
       </p>
       <p>
-        <b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.5.3<br /> Next
+        <b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.6.0<br /> Next
         <div class="w3-row-padding w3-center w3-margin-top">
         <div class="w3-half">
           <div class="w3-card-4">
@@ -278,11 +278,12 @@ Feature: My new feature
         <li>Extend this class to “CommonDataProvider » and implement to « DataInputProvider » and « DataOutputProvider ».</li>
         <li>In your XxxxxRobot.properties file:</li>
       </ul>
-      <div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
-        # type of dataProvider (EXCEL, CSV, DB, REST, noraui.data.xxx.YourCustomDataProvider)
-        dataProvider.in.type=noraui.data.json.CustomJsonDataProvider
-        dataProvider.out.type=noraui.data.json.CustomJsonDataProvider
-      </div>
+      <pre class="language-gherkin">
+<code># type of input dataProvider (EXCEL, CSV, SQL, REST, GHERKIN, noraui.data.xxx.YourCustomInputDataProvider)
+dataProvider.in.type=noraui.data.json.CustomJsonDataProvider
+# type of output dataProvider (EXCEL, CSV, REST, CONSOLE, noraui.data.xxx.YourCustomOutputDataProvider)
+dataProvider.out.type=noraui.data.json.CustomJsonDataProvider</code>
+      </pre>
       <p>You can find a sample <a href="https://github.com/NoraUi/noraui.github.io/blob/master/howToUse/CustomJsonDataProvider.java" target="_blank">here</a></p>
     </div>
 
