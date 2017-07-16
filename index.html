@@ -42,6 +42,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-eye fa-fw"></i>  Overview</a>
     <a href="#installationInstructions" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Installation Instructions</a>
     <a href="#quickStartGuide" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-graduation-cap fa-fw"></i>  Quick Start Guide</a>
+    <a href="#javadoc" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Official java doc</a>
     <a href="#continuousIntegration" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-bullseye fa-fw"></i>  Continuous Integration</a>
     <a href="#customDataProvider" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-database fa-fw"></i>  Custom data provider</a><br><br>
   </div>
@@ -216,6 +217,7 @@ Feature: My new feature
           </div> 
         </div>
       </div>
+      You can find all methods <a href="https://noraui.github.io/NoraUi/noraui/application/steps/CommonSteps.html" target="_blank">here</a><br/><br/>
       Let's focus now on the structure of the added steps within our new scenario.<br/>
       <div class="w3-margin-left">
       <b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b></div>
@@ -260,12 +262,90 @@ Feature: My new feature
       <div class="w3-margin-left">
       <b>When I click on '<span class="w3-text-red">google.</span><span class="w3-text-green">SearchPage</span><span class="w3-text-blue">-searchButton</span>'.</b></div>
       <p>Let's create a new Page in a new google package:</p>
+      <p><i>Documentation being written ...</i></p>
+      <p></p>
+      <p></p>
+      <p><b>You should use the step generic of the Nora-Ui framework as much as possible.</b> If no step generic is appropriate (too specific or too complicated a business operation), you will have to code your own step in your robot via Java language:</p>
+      <p>Example:
+          <ul>
+              <li>You need click on button A.</li>
+              <li>Check value on input text B.</li>
+              <li>Update value on input text C with "GREEN" if value of B is different of "RED".</li>
+              <li>Or update value on input text C with "ERROR".</li>
+          </ul>
+      </p>
+      <pre class="language-java">
+<code>@Given("custom application action with click on '(.*)-(.*)', check value on '(.*)-(.*)' and update value on '(.*)-(.*)'")
+public void customApplicationAction(String pageA, String toClickA, String pageB, String elementNameB, String pageC, String elementNameC) {
+    clickOn(Page.getInstance(pageA).getPageElementByKey('-' + toClickA));
+    if (!checkInputText(Page.getInstance(pageB).getPageElementByKey('-' + elementNameB), "RED")) {
+        updateText(Page.getInstance(pageC).getPageElementByKey('-' + elementNameC), "GREEN");
+    } else {
+        updateText(Page.getInstance(pageC).getPageElementByKey('-' + elementNameC), "ERROR");
+    }
+}</code>
+    </pre>
+    <p><b>"clickOn"</b>, <b>"checkInputText"</b> and <b>"updateText"</b> already exist. You can find all methods <a href="https://noraui.github.io/NoraUi/noraui/application/steps/Step.html" target="_blank">here</a></p>
     </div>
+    
+    <hr id="javadoc" style="border-color: teal; margin: 25px;"/>
+    <div class="w3-container">
+      <h2><i class="fa fa-book"></i> Official java doc</h2>
+      <p>Nora-UI framework has a complete technical documentation for developers.</p>
+      <p>You can find all official java doc <a href="https://noraui.github.io/NoraUi/" target="_blank">here</a></p>
+    </div>
+    
     <hr id="continuousIntegration" style="border-color: teal; margin: 25px;"/>
     <div class="w3-container">
       <h2><i class="fa fa-bullseye"></i> Continuous Integration</h2>
       <p>The use of Nora-UI is achieved through continuous integration.</p>
       <p>In this chapter we will see together how to configure a Jenkins and reap the results on a daily basis.</p>
+      <ul>
+          <li>Jenkins</li>
+          <p>Use a Maven job.</p>
+          <p style="margin:0">On "Goal" of <b>Build</b> part:</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clean test javadoc:javadoc -Dcucumber.options="--tags @LoginLogout" -Pjavadoc,preIC,scenarioInitiator,ci,unit-tests,postIC,analyze -Dmaven.test.failure.ignore=true sonar:sonar</p>
+          <p style="margin-bottom:0">On "Execute shell script" of <b>Post Steps</b> part:</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cp ${WORKSPACE}/src/test/resources/dev/formatter.js ${WORKSPACE}/target/reports/html/formatter.js</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cp ${WORKSPACE}/src/test/resources/dev/index.html ${WORKSPACE}/target/reports/html/index.html</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cp ${WORKSPACE}/src/test/resources/dev/counter.js ${WORKSPACE}/target/reports/html/counter.js</p>
+          <p style="margin-bottom:0">On "Archive artifacts" of <b>Actions following the build</b> part:</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target/classes/**/*,target/coverage-reports/*</p>
+          <p style="margin-bottom:0">On "Reports" of <b>Publish HTML reports</b> part (from <a href="https://wiki.jenkins.io/display/JENKINS/HTML+Publisher+Plugin" target="_blank">HTML Publisher plugin</a>):</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML directory to archive: target/reports/html</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Index page[s]: index.html</p>
+          <p style="margin-top:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Report title: Cucumber HTML Report</p>
+          <img style="width: 210px" src="img/cucumber-html-report-link.gif" alt="cucumber-html-report-link"/><br/><br/> 
+          <img style="width: 50%" src="img/cucumber-html-report.gif" alt="cucumber-html-report"/><br/><br/>
+          <p style="margin:0">On "Groovy script" of <b>Groovy Postbuild</b> part (from <a href="https://wiki.jenkins.io/display/JENKINS/Groovy+Postbuild+Plugin" target="_blank">Groovy Postbuild</a>):</p>
+          <pre class="language-java">
+<code>   
+if(expectationMatcher.count >0){
+    def utCount = manager.build.logFile.text.count("Failures: 0, Errors: 0, Skipped: 0")
+        String expectation = expectationMatcher[0][1]
+    def expectationCount = manager.build.logFile.text.count(expectation)
+
+    if(!(expectationCount==2 && (manager.envVars["UT_COUNT"].equals(utCount+"") || utCount == 2))) {
+          manager.addErrorBadge("Tests results don't match expectations")
+          manager.createSummary("error.gif").appendText("<h1>Wrong tests results</h1></br>Expected: " + expectation + "<br/>Expected successful UT: " + manager.envVars["UT_COUNT"] + " and result is " + utCount, false, false, false, "red")
+          manager.buildFailure()
+    }
+    else{
+          manager.addBadge("success.gif", "Tests result match expectations")
+          manager.createSummary("green.gif").appendText("<h1>Build instable but errors match expectations</h1></br>Expected: " + expectation + "<br/>Successful UT: " + utCount, false, false, false, "green")
+    }
+}</code> 
+          </pre>
+          <br/>            
+          <li>Travis CI</li>
+          <p style="margin:0">On "travis.yml" of <b>Build</b> part:</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script:</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- test/run.sh</p>
+          <p style="margin-bottom:0">On <b>test/run.sh</b> file:</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package javadoc:javadoc -Dcucumber.options="--tags @LoginLogout" -Pjavadoc,preIC,scenarioInitiator,ci,unit-tests,postIC,analyze -Dmaven.test.failure.ignore=true sonar:sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.organization=$YOUR_ORGANIZATION -Dsonar.login=$SONAR_TOKEN</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl -s "https://api.travis-ci.org/jobs/${TRAVIS_JOB_ID}/log.txt?deansi=true" > nonaui.log</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sed ... and exit 255 if an error occurred.</p>
+      </ul>
     </div>
 
     <hr id="customDataProvider" style="border-color: teal; margin: 25px;"/>
