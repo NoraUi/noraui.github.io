@@ -48,7 +48,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
 </nav>
 
-
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
@@ -204,7 +203,7 @@ Feature: My new feature
         <li>You can create a new one and then implement it</li>
       </ul>
       <div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
-        <p>Here is a piece of advice for Eclipse: there is a very useful Cucumber-Eclipse plugin very that you can install via "Install New Software" menu via this address <a href="#">https://cucumber.io/cucumber-eclipse//update-site</a>.<br/>The plugin indicates for example, non-implemented steps via highlighting, or existing steps via auto-completion (Ctrl+Space) as you can see on the screenshot below.</p>
+        <p>Here is a piece of advice for Eclipse: there is a very useful Cucumber JVM Eclipse Plugin very that you can install via "Install New Software" menu via this address : https://cucumber.io/cucumber-eclipse/update-site.<br/>The plugin indicates for example, non-implemented steps via highlighting, or existing steps via auto-completion (Ctrl+Space) as you can see on the screenshot below.</p>
         <p>To use external libraries as NoraUi within your Gherkin files, in Eclipse preferences go to Cucumber > User Settings. Then add 'noraui' root package to your classpath. Now your are able to use generic steps (click, type, check, open a page...) from NoraUi dependency in your own project.</p>
       </div>
       <div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
@@ -286,6 +285,44 @@ public void customApplicationAction(String pageA, String toClickA, String pageB,
 }</code>
     </pre>
     <p><b>"clickOn"</b>, <b>"checkInputText"</b> and <b>"updateText"</b> already exist. You can find all methods <a href="https://noraui.github.io/NoraUi/noraui/application/steps/Step.html" target="_blank">here</a></p>
+    <p><b>You should use the step generic of the Nora-Ui framework as much as possible.</b> If no java method generic is appropriate (too specific or too complicated a business operation), you will have to code your own selenium in your robot via Java language:</p>
+      <p>Example:
+          <ul>
+              <li>You need wait a special action (wait by k2000).</li>
+              <li>You need check a special action.</li>
+              <li>Browse DOM arrays and objects serialized to json.</li>
+              <li>...</li>
+          </ul>
+      </p>
+      <pre class="language-java">
+<code>@Then("custom application action with '(.*)'")
+public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
+    Foos foos = new Foos();
+    foos.deserialize(fooJsonString);
+    try {
+        for (Foo foo : foos) {
+            List<WebElement> rows = Context.waitUntil(ExpectedConditions.presenceOfAllElementsLocatedBy(Utilities.getLocator(myappHomePage.cancelStepList)));
+            if ("to cancel".equals(foo.getActionOfStepToBeProcessed())) {
+                for (int i = 0; i < rows.size(); i++) {
+                    WebElement row = rows.get(i);
+                    if (row.getText().startsWith(foo.getStepToBeProcessed())) {
+                        selectCheckbox(myappHomePage.cancelStepCheckbox, true, i + 1);
+                    }
+                }
+            } else if ("to achieve".equals(foo.getActionOfStepToBeProcessed())) {
+                for (int i = 0; i < rows.size(); i++) {
+                    WebElement row = rows.get(i);
+                    if (row.getText().startsWith(foo.getStepToBeProcessed())) {
+                        selectCheckbox(myappHomePage.cancelStepCheckbox, false, i + 1);
+                    }
+                }
+            }
+        }
+    } catch (TechnicalException e) {
+        new Result.Failure<>(fooJsonString, NoraRobotMessages.FAIL_MESSAGE_CLIC_OK_ON_SEARCH_BY_SU_IN_MY_APPLICATION, true, myappHomePage.getCallBack());
+    }
+}</code>
+    </pre>
     </div>
     
     <hr id="javadoc" style="border-color: teal; margin: 25px;"/>
