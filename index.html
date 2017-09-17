@@ -40,6 +40,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="#" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-eye fa-fw"></i>  Overview</a>
+    <a href="#concepts" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Concepts</a>
     <a href="#installationInstructions" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Installation Instructions</a>
     <a href="#quickStartGuide" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-graduation-cap fa-fw"></i>  Quick Start Guide</a>
     <a href="#javadoc" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Official java doc</a>
@@ -58,41 +59,48 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <header class="w3-container">
     <h2><i class="fa fa-eye"></i> Overview</h2>
   </header>
-
+  <div class="w3-row-padding">
+    <p>NoraUi, for NOn-Regression Automation for User Interfaces, is a <b>Java framework</b> based on <b>Selenium, Cucumber and Gherkin stack</b> to create <b>GUI testing projects</b> that can be included in the continuous integration chain of single/multi applications web solution builds.<br/>
+    It ensures applications non-regression throughout their lifes taking into account code evolutions and acceptance of defined business client criterias.
+    </p>
+  </div>
   <div class="w3-row-padding w3-center">
+  
     <div class="w3-third">
-        <div class="w3-card-2" style="min-height: 460px">
-          <div class="w3-container w3-green"><h3>Data</h3></div>
-          <br /> <i class="fa fa-database w3-margin-bottom w3-text-green" style="font-size: 100px"> </i>
-          <p>Choose your Input Data Provider</p>
-          <p>Excel (xls, xlsx, xlsm), CSV</p>
-          <p>REST Web Services</p>
-          <p>SQL (MySql, Postgres, Oracle)</p>
-          <p>...</p>
-          <p>or implement yours</p>
-          <p>
+        <div class="w3-card-2" style="min-height: 330px" >
+          <div class="w3-container w3-green"><h3>Manage your data</h3></div>
+          <br /> <i class="fa fa-database w3-margin-bottom w3-text-green" style="font-size: 70px"></i>
+          <p>Choose your Input Data Provider<br/>
+          Excel (xls, xlsx, xlsm), CSV<br/>
+          REST Web Services<br/>
+          SQL (MySql, Postgres, Oracle)<br/>
+          ...<br/>
+          or implement yours<br/>
+          </p>
         </div>
       </div>
 
       <div class="w3-third">
-        <div class="w3-card-2" style="min-height: 460px">
-          <div class="w3-container w3-blue"><h3>Features</h3></div>
-          <br /> <i class="fa fa-cogs w3-margin-bottom w3-text-blue" style="font-size: 100px"></i>
-          <p>Reworked Selenium methods</p>
-          <p>Error management</p>
-          <p>Reporting</p>
-          <p>Conditioned steps</p>
-          <p>Loop steps</p>
-          <p>Configuration management</p>
+        <div class="w3-card-2" style="min-height: 330px">
+          <div class="w3-container w3-blue"><h3>Added features</h3></div>
+          <br /> <i class="fa fa-cogs w3-margin-bottom w3-text-blue" style="font-size: 70px"></i>
+          <p>Reworked Selenium methods<br/>
+          Error management<br/>
+          Reporting<br/>
+          Conditioned steps<br/>
+          Loop steps<br/>
+          Configuration management<br/>
+          </p>
         </div>
       </div>
 
       <div class="w3-third">
-        <div class="w3-card-2" style="min-height: 460px">
-        <div class="w3-container w3-red"><h3>Run from Anywhere on Everything</h3></div>
-          <br /> <i class="fa fa-desktop w3-margin-bottom w3-text-red" style="font-size: 100px"></i>
-          <p>Windows/Unix/Mac OS portability</p>
-          <p>Independent of front-end web apps technologies</p>
+        <div class="w3-card-2" style="min-height: 330px">
+        <div class="w3-container w3-red"><h3>Run from anywhere on everything</h3></div>
+          <br /> <i class="fa fa-desktop w3-margin-bottom w3-text-red" style="font-size: 70px"></i>
+          <p>Windows/Unix/Mac OS portability<br/>
+          Independent of front-end web apps technologies<br/>
+          </p>
         </div>
       </div>
   </div>
@@ -111,6 +119,58 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <li>Finding defects missed by manual testing</li>
       </ul>
       <p>It is not always advantageous to automate test cases. There are times when manual testing may be more appropriate. For instance, if the application's user interface will change considerably in the near future, then any automation might need to be rewritten anyway. Also, sometimes there simply is not enough time to build test automation. For the short term, manual testing may be more effective. If an application has a very tight deadline, there is currently no test automation available, and it's imperative that the testing get done within that time frame, then manual testing is the best solution.</p>
+  </div>
+  <hr id="concepts" style="border-color: teal; margin: 25px;"/>
+  <div class="w3-container w3-margin-top">
+    <h2><i class="fa fa-book"></i> Concepts</h2>
+    <h3>Page Object Pattern</h3>
+    <p>
+    <b>Page Object Pattern</b>, the term that <b>Selenium</b> users keep buzzing. Page object is a design pattern that can be implemented as a Selenium best practices and also in NoraUi. The functionality classes (Page/PageElement) in this design represent a logical relationship between the pages of the application. Steps, regarding to them, encapsulate behaviors using one or several Pages.
+    </p>
+    <p>
+    The <b>Page Object Pattern</b> represents the screens of your web app as a series of objects and encapsulates the components represented by a page.
+    It allows us to model the UI in our tests.
+    A page object is an object-oriented class that serves as an interface to a page of your application unit tests.
+    </p>
+    <h3>Layered architecture</h3>
+    <p>
+      NoraUi framework introduces some concepts (Step, Page, PageElement, Selectors, packages...) all useful at different levels of your project. So let's explain quickly the different layers of NoraUi structure.
+    </p>
+      <div class="w3-panel w3-border w3-light-grey">
+        <div>
+          <div class="w3-third w3-margin-left w3-center w3-right">
+            <div class="w3-card-4">
+              <img src="img/architecture/architecture.gif" alt="archetype" style="width: 100%">
+              <div class="w3-container w3-light-gray">
+                <small>The 4 NoraUi architecture layers</small>
+              </div>
+            </div>
+          </div>
+          <ul class="w3-ul">
+              <li>
+                <h4>Gherkin Scenario</h4>
+                <p>The Gherkin layer represents the functional actions to execute within your test. It is the highest abstraction level of your scenario.</p>
+              </li>
+              <li>
+                <h4>Steps</h4>
+                <p>Steps layer represents all the glue code that will be available to be used from Gherkin scenario features. All Steps classes are included under the 'steps' package. This is true for both your project and NoraUi framework. The Steps will contains all your tests behaviors (web driver actions, checks...) that you can split into different classes and sub-package related to your business needs.</p>
+              </li>
+              <li>
+                <h4>Pages</h4>
+                <p>Pages layer represents your target applications by defining their structures in PageElements that are used in step actions. All Pages classes can be distributed into differents 'page' sub-packages depending on the business domains they belong to. No behavior should be done in these classes except some minor validations. Behaviors are done in the upper layer (Steps).</p>
+              </li>
+              <li>
+                <h4>Selectors</h4>
+                <p>The last layer is the one which is the closest to remote applications. It contains versioned .ini files by application which define how to retrieve a DOM element using the upper layer (Pages) PageElements. Several solutions are implemented like search by xpaths, class, id...</p>
+              </li>
+            </ul>
+        </div>
+      </div>
+      To conclude this point, every implemented scenario will run the following flow for each line:<br/>
+      <div class="w3-panel w3-teal w3-center">
+      <h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Read the current Gherkin line</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Found the matching Steps method to run</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Get the concerned Page and/or PagesElement</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Retrieve linked selectors</h4><h4 class="w3-opacity"><i class="fa fa-arrow-up"></i> Go back up to the Steps layer to execute the action</h4>
+      </div>
+      <p>So the framework is built to be used beginning from the top layer (closer to functional/business needs) to the bottom one (closer to target applications structures).</p>
   </div>
   <hr id="installationInstructions" style="border-color: teal; margin: 25px;"/>
   <div class="w3-container w3-margin-top">
@@ -133,7 +193,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         &lt;archetype>
           &lt;groupId>com.github.noraui&lt;/groupId>
           &lt;artifactId>noraui-archetype&lt;/artifactId>
-          &lt;version>2.6.0&lt;/version>
+          &lt;version>2.6.2&lt;/version>
           &lt;description>Maven archetype for use a NORA-UI project&lt;/description>
         &lt;/archetype>
     &lt;/archetypes>
@@ -141,7 +201,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           </pre>
       </p>
       <p>
-        <b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.6.0<br /> Next
+        <b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.6.2<br /> Next
         <div class="w3-row-padding w3-center w3-margin-top">
         <div class="w3-half">
           <div class="w3-card-4">
@@ -221,43 +281,8 @@ Feature: My new feature
       <div class="w3-margin-left">
       <b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b></div>
       The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">'pages' subpackages</span> of your project.<br/>
-      Just with analysing this step, we have introduced some new concepts (Step, Page, PageElement, packages) about NoraUi architecture. So let's explain quickly the different layers of NoraUi structure.
-      <div class="w3-panel w3-border w3-light-grey">
-        <div>
-          <div class="w3-third w3-margin-left w3-center w3-right">
-            <div class="w3-card-4">
-              <img src="img/architecture/architecture.gif" alt="archetype" style="width: 100%">
-              <div class="w3-container w3-light-gray">
-                <small>The 4 NoraUi architecture layers</small>
-              </div>
-            </div>
-          </div>
-          <ul class="w3-ul">
-              <li>
-                <h4>Gherkin Scenario</h4>
-                <p>The Gherkin layer represents the functional actions to execute within your test. It is the highest abstraction level of your scenario.</p>
-              </li>
-              <li>
-                <h4>Steps</h4>
-                <p>Steps layer represents all the glue code that will be available to be used from Gherkin scenario features. All Steps classes are included under the 'steps' package. This is true for both your project and NoraUi framework. The Steps will contains all your tests behaviors (web driver actions, checks...) that you can split into different classes and sub-package related to your business needs.</p>
-              </li>
-              <li>
-                <h4>Pages</h4>
-                <p>Pages layer represents your target applications by defining their structures in PageElements that are used in step actions. All Pages classes can be distributed into differents 'page' sub-packages depending on the business domains they belong to. No behavior should be done in these classes except some minor validations. Behaviors are done in the upper layer (Steps).</p>
-              </li>
-              <li>
-                <h4>Selectors</h4>
-                <p>The last layer is the one which is the closest to remote applications. It contains versioned .ini files by application which define how to retrieve a DOM element using the upper layer (Pages) PageElements. Several solutions are implemented like search by xpaths, class, id...</p>
-              </li>
-            </ul>
-        </div>
-      </div>
-      To conclude this point, every implemented scenario will run the following flow for each line:<br/>
-      <div class="w3-panel w3-teal w3-center">
-      <h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Read the current Gherkin line</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Found the matching Steps method to run</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Get the concerned Page and/or PagesElement</h4><h4 class="w3-opacity"><i class="fa fa-arrow-down"></i> Retrieve linked selectors</h4><h4 class="w3-opacity"><i class="fa fa-arrow-up"></i> Go back up to the Steps layer to execute the action</h4>
-      </div>
-      <p>So the framework is built to be used beginning from the top layer (closer to functional/business needs) to the bottom one (closer to target applications structures).</p>
-      <p>Now we want to continue on writing our scenario in MyFeature.feature. So let's go back to it and complete the existing steps. The objective will be to do a simple google reasearch and check the results to find the first link. The Gherkin content will look like this:
+      
+      <p>Then we want to continue on writing a more complex scenario in MyFeature.feature. So let's go back to it and complete the existing steps. <br/><b>The objective will be to do a simple google reasearch and check the results to find the first link.</b><br/>The Gherkin content will look like this:
       <pre class="language-gherkin">
 <code>@MyNewFeature
 Feature: My new feature
