@@ -40,11 +40,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="#" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-eye fa-fw"></i>  Overview</a>
-    <a href="#concepts" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Concepts</a>
+    <a href="#concepts" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-lightbulb-o fa-fw"></i>  Concepts</a>
     <a href="#installationInstructions" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Installation Instructions</a>
     <a href="#quickStartGuide" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-graduation-cap fa-fw"></i>  Quick Start Guide</a>
     <a href="#javadoc" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Official java doc</a>
-    <a href="#continuousIntegration" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-bullseye fa-fw"></i>  Continuous Integration</a>
+    <a href="#continuousIntegration" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-cogs fa-fw"></i>  Continuous Integration</a>
     <a href="#customDataProvider" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-database fa-fw"></i>  Custom data provider</a><br><br>
   </div>
 </nav>
@@ -122,7 +122,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <hr id="concepts" style="border-color: teal; margin: 25px;"/>
   <div class="w3-container w3-margin-top">
-    <h2><i class="fa fa-book"></i> Concepts</h2>
+    <h2><i class="fa fa-lightbulb-o"></i> Concepts</h2>
     <h3>Page Object Pattern</h3>
     <p>
     <b>Page Object Pattern</b>, the term that <b>Selenium</b> users keep buzzing. Page object is a design pattern that can be implemented as a Selenium best practices and also in NoraUi. The functionality classes (Page/PageElement) in this design represent a logical relationship between the pages of the application. Steps, regarding to them, encapsulate behaviors using one or several Pages.
@@ -282,7 +282,8 @@ Feature: My new feature
       You can find all methods <a href="https://noraui.github.io/NoraUi/noraui/application/steps/CommonSteps.html" target="_blank">here</a><br/><br/>
       Let's focus now on the structure of the added steps within our new scenario.<br/>
       <div class="w3-margin-left">
-      <b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b></div>
+      <b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b>
+      </div>
       The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">'pages' subpackages</span> of your project.<br/>
       
       <p>Then we want to continue on writing a more complex scenario in MyFeature.feature. So let's go back to it and complete the existing steps. <br/><b>The objective will be to do a simple google reasearch and check the results to find the first link.</b><br/>The Gherkin content will look like this:
@@ -291,15 +292,15 @@ Feature: My new feature
 Feature: My new feature
   Scenario Outline: My new feature scenario
     Given 'GOOGLE_HOME' is opened.
-    When I update text 'google.SearchPage-searchField' with ''.
+    When I update text 'google.SearchPage-searchField' with '&lt;search&gt'.
     And I click on 'google.SearchPage-searchButton'.
     Then I check that 'google.SearchPage-googleLink' is present.
 
     And I go back to 'GOOGLE_HOME'
-    Examples:
+  Examples:
     #DATA
-    |id|
-    |1|
+    |id|search|Result|
+    |1|test|
     #END</code>
           </pre>
       <h4>2. Create a Page class</h4>
@@ -322,7 +323,8 @@ Feature: My new feature
     @Override
     public boolean checkPage(Object... elements) {
         return true;
-    }</code>
+    }
+}</code>
           </pre>
 
       <p>Your application pages must always extend abstract class <b>Page</b>.<br/>
@@ -342,12 +344,11 @@ id=lst-ib
 name=btnK
 
 [GOO_SEA-googleLink]
-xpath=(//h3//a)[1]
-</code>
-<p>
-All you have to know about selectors is here. We easily locate searchField and searchButton using id and name HTML attributes. For the googleLink element, we use xpath to get the first link displayed on the results page. 
-</p>
+xpath=(//h3//a)[1]</code>
 </pre>
+      <p>
+      All you have to know about selectors is here. We easily locate searchField and searchButton using id and name HTML attributes. <br/>For the googleLink element, we use xpath to get the first link displayed on the results page. 
+      </p>
       <h4>4. Define your own steps</h4>
       <p><b>You should use as much as possible the NoraUi generic steps for basic purposes.</b><br/>
       This can be made directly with Gherkin language as we have done before, or within your own steps. Steps definition are simple classes under <i>application.steps</i> package. These classes should extend <b>Step</b> class. From them, you can use Pages and code specific actions and expectations:
@@ -420,7 +421,7 @@ public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
     foos.deserialize(fooJsonString);
     try {
         for (Foo foo : foos) {
-            List<WebElement> rows = Context.waitUntil(ExpectedConditions.presenceOfAllElementsLocatedBy(Utilities.getLocator(myappHomePage.cancelStepList)));
+            List&lt;WebElement&gt; rows = Context.waitUntil(ExpectedConditions.presenceOfAllElementsLocatedBy(Utilities.getLocator(myappHomePage.cancelStepList)));
             if ("to cancel".equals(foo.getActionOfStepToBeProcessed())) {
                 for (int i = 0; i < rows.size(); i++) {
                     WebElement row = rows.get(i);
@@ -442,8 +443,79 @@ public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
     }
 }</code>
     </pre>
+    <p>
+    In our google search page testing scenario, we don't need to create new Steps methods for the moment. We will only use existing framework ones.
+    </p>
+    <h4>5. Manage your applications</h4>
+    <p>
+    Open your XXXContext.java class and add the following code in it (see lines with '/** Added line(s) **/' comment):
+    </p>
+    <pre class="language-java">
+<code>...
+    /** Added lines **/
+    public static final String GOOGLE_HOME = "GOOGLE_HOME";
+    public static final String GOOGLE_KEY = "google";
+    private String googleHome; // GOOGLE home url</b>
+
+    /**
+     * Constructor is useless because all attributes are static
+     */
+    private NoraRobotContext() {
+        super();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public synchronized void initializeRobot(Class clazz) {
+        super.initializeRobot(clazz);
+        logger.info("NoraRobotContext > initializeRobot()");
+
+        // Urls configuration
+        logogameHome = setProperty(LOGOGAME_KEY, applicationProperties);
+        /** Added line **/
+        googleHome = setProperty(GOOGLE_KEY, applicationProperties);
+
+        // Selectors configuration
+        initApplicationDom(clazz.getClassLoader(), selectorsVersion, LOGOGAME_KEY);
+        /** Added line **/
+        initApplicationDom(clazz.getClassLoader(), selectorsVersion, GOOGLE_KEY);
+
+        exceptionCallbacks.put(GO_TO_LOGOGAME_HOME, STEPS_BROWSER_STEPS_CLASS_QUALIFIED_NAME, GO_TO_URL_METHOD_NAME, LOGOGAME_HOME);
+        exceptionCallbacks.put(CLOSE_WINDOW_AND_SWITCH_TO_LOGOGAME_HOME, STEPS_BROWSER_STEPS_CLASS_QUALIFIED_NAME, "closeWindowAndSwitchTo", LOGOGAME_KEY, LOGOGAME_HOME);
+        exceptionCallbacks.put(CLOSE_ALL_WINDOWS_AND_SWITCH_TO_LOGOGAME_HOME, STEPS_BROWSER_STEPS_CLASS_QUALIFIED_NAME, "closeAllWindowsAndSwitchTo", LOGOGAME_KEY);
+
+        applications.put(LOGOGAME_KEY, new Application(LOGOGAME_HOME, logogameHome));
+        /** Added line **/
+        applications.put(GOOGLE_KEY, new Application(GOOGLE_HOME, googleHome));
+
+        Page.setPageMainPackage("com.yourcompany.yourproject.application.pages.");
+    }
+...</code>
+    </pre>
+    <p>
+    Here, we just have defined in the robot Context a new "google" application linked with a selectors file named "google.ini" and pointing at a URI named "google" in the robot properties file (<i>src/main/resources/XXX.properties</i>).<br/>
+    So, in this file, add the following content: <b>google=${google}</b> and in <i>src/test/resources/environments</i> filter files, you can simply set a value to the new <b>google</b> variable. An environment filter file should look like this (for instance 'dev.properties'):
+    </p>
+    <pre class="language-markup">
+<code>#phantom,chrome,ie,htmlunit
+browser=chrome
+timeout=20
+selectors.version=V1
+display.stacktrace=true
+logogame=https://noraui.github.io/demo/logogame/v3/
+google=https://www.google.com/
+http_proxy=
+https_proxy=
+no_proxy=
+locale=en</code>
+    </pre>
+    <p>
+    These different filter files are necessary to run your scenarios on several plateforms and manage the global configuration dynamically depending on the phase in which the robot is running. Commonly, the phases are <b>dev</b> for developement, <b>ci</b> for continuous integration and <b>prod</b> for production if the robot aims for executing operations on applications in production.
+    </p>
+    <h4>6. Choose providers</h4>
     </div>
-    
     <hr id="javadoc" style="border-color: teal; margin: 25px;"/>
     <div class="w3-container">
       <h2><i class="fa fa-book"></i> Official java doc</h2>
@@ -453,7 +525,7 @@ public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
     
     <hr id="continuousIntegration" style="border-color: teal; margin: 25px;"/>
     <div class="w3-container">
-      <h2><i class="fa fa-bullseye"></i> Continuous Integration</h2>
+      <h2><i class="fa fa-cogs"></i> Continuous Integration</h2>
       <p>The use of Nora-UI is achieved through continuous integration.</p>
       <p>In this chapter we will see together how to configure a Jenkins and reap the results on a daily basis.</p>
       <ul>
