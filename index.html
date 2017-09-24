@@ -118,6 +118,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <li>Customized defect reporting</li>
         <li>Finding defects missed by manual testing</li>
       </ul>
+      </p>
       <p>It is not always advantageous to automate test cases. There are times when manual testing may be more appropriate. For instance, if the application's user interface will change considerably in the near future, then any automation might need to be rewritten anyway. Also, sometimes there simply is not enough time to build test automation. For the short term, manual testing may be more effective. If an application has a very tight deadline, there is currently no test automation available, and it's imperative that the testing get done within that time frame, then manual testing is the best solution.</p>
   </div>
   <hr id="concepts" style="border-color: teal; margin: 25px;"/>
@@ -186,8 +187,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         Create or edit the <i>archetype-catalog.xml</i> file in your .m2 repository and the following content:
 
         <br />
-        <pre class="language-markup">
-<code>&lt;?xml version="1.0" encoding="UTF-8"?>
+      </p>
+        <pre class="language-markup"><code>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;archetype-catalog
 xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd"
 xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0"
@@ -196,15 +197,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         &lt;archetype>
           &lt;groupId>com.github.noraui&lt;/groupId>
           &lt;artifactId>noraui-archetype&lt;/artifactId>
-          &lt;version>2.6.2&lt;/version>
+          &lt;version>2.6.3&lt;/version>
           &lt;description>Maven archetype for use a NORA-UI project&lt;/description>
         &lt;/archetype>
     &lt;/archetypes>
-&lt;/archetype-catalog></code>
-          </pre>
+&lt;/archetype-catalog></code></pre>
       </p>
       <p>
-        <b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.6.2<br /> Next
+        <b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 2.6.3<br /> Next
         <div class="w3-row-padding w3-center w3-margin-top">
         <div class="w3-half">
           <div class="w3-card-4">
@@ -248,8 +248,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       </div>
       We can now go back to our feature and add some basic content and a new step.<br/>
       Copy these few lines to MyNewFeature.feature.
-      <pre class="language-gherkin">
-<code>@MyNewFeature
+      <pre class="language-gherkin"><code>@MyNewFeature
 Feature: My new feature
   Scenario Outline: My new feature scenario 
     When I click on 'mypackage.MyPage-myElement'.
@@ -257,8 +256,7 @@ Feature: My new feature
     #DATA
     |id|
     |1|
-    #END</code>
-          </pre>
+    #END</code></pre>
       You can notice that we used "I click on 'mypackage.MyPage-myElement'." step which comes directly from NoraUI framework.<br/>
       When you write a feature, you have 2 possibilities when searching for steps:
       <ul>
@@ -287,8 +285,7 @@ Feature: My new feature
       The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">'pages' subpackages</span> of your project.<br/>
       
       <p>Then we want to continue on writing a more complex scenario in MyFeature.feature. So let's go back to it and complete the existing steps. <br/><b>The objective will be to do a simple google reasearch and check the results to find the first link.</b><br/>The Gherkin content will look like this:
-      <pre class="language-gherkin">
-<code>@MyNewFeature
+      <pre class="language-gherkin"><code>@MyNewFeature
 Feature: My new feature
   Scenario Outline: My new feature scenario
     Given 'GOOGLE_HOME' is opened.
@@ -301,13 +298,11 @@ Feature: My new feature
     #DATA
     |id|search|Result|
     |1|test|
-    #END</code>
-          </pre>
+    #END</code></pre>
       <h4>2. Create a Page class</h4>
       <p>In order to reference target Page elements, we need to instanciate a new SearchPage in a new google package (under <i>application.pages</i>).</p>
       <p>Paste the following Java code into SeachPage class:</p>
-<pre class="language-java">
-<code>public class SearchPage extends Page {
+<pre class="language-java"><code>public class SearchPage extends Page {
 
     public final PageElement searchField = new PageElement("-searchField", "Search field");
     public final PageElement searchButton = new PageElement("-searchButton", "Search button");
@@ -324,8 +319,7 @@ Feature: My new feature
     public boolean checkPage(Object... elements) {
         return true;
     }
-}</code>
-          </pre>
+}</code></pre>
 
       <p>Your application pages must always extend abstract class <b>Page</b>.<br/>
       From top to botton, several instances of <b>PageElement</b> are created to make the link Gherkin feature. <br/>The constructor defines the application this Page comes from (we will see after how to define applications in <b>XXXContext</b> class), its unique key and a callback in case of failure of any behavior related to this Page. <br/>Finally the <b>checkPage()</b> method can be override to use your own way to validate the Page is correctly opened in the web browser driver (by checking current page title for instance).
@@ -336,16 +330,14 @@ Feature: My new feature
       <p>
       Under <i>src/main/resources/selectors/V1</i>, create a new file named google.ini and paste the following content:
       </p>
-      <pre class="language-markup">
-<code>[GOO_SEA-searchField]
+      <pre class="language-markup"><code>[GOO_SEA-searchField]
 id=lst-ib
 
 [GOO_SEA-searchButton]
 name=btnK
 
 [GOO_SEA-googleLink]
-xpath=(//h3//a)[1]</code>
-</pre>
+xpath=(//h3//a)[1]</code></pre>
       <p>
       All you have to know about selectors is here. We easily locate searchField and searchButton using id and name HTML attributes. <br/>For the googleLink element, we use xpath to get the first link displayed on the results page. 
       </p>
@@ -353,8 +345,7 @@ xpath=(//h3//a)[1]</code>
       <p><b>You should use as much as possible the NoraUi generic steps for basic purposes.</b><br/>
       This can be made directly with Gherkin language as we have done before, or within your own steps. Steps definition are simple classes under <i>application.steps</i> package. These classes should extend <b>Step</b> class. From them, you can use Pages and code specific actions and expectations:
       </p>
-      <pre class="language-java">
-<code>public class MyOwnSteps extends Step {
+      <pre class="language-java"><code>public class MyOwnSteps extends Step {
 
     private SearchPage searchPage;
 
@@ -368,8 +359,7 @@ xpath=(//h3//a)[1]</code>
        if (!searchPage.checkPage()) {
            new Result.Failure<>("google", "ERROR_MESSAGE", true, searchPage.getCallBack());
        }
-   }</code>
-   </pre>
+   }</code></pre>
    In this sample, we retrieve the <b>SearchPage</b> from <b>Page factory</b> and use it after in an <b>Gherkin exposed</b> (@Then...) public method to do a simple validation. If the validation fails, a new <b>Result.Failure</b> object is created to manage error reporting, screenshooting and callback invokation (we will see error management and reporting in incoming parts).
    <p>You can go further by combining NoraUi generic methods calls inside one Step method.<br/>
       Example:
@@ -381,8 +371,7 @@ xpath=(//h3//a)[1]</code>
           </ul>
     </p>
       Create a new method in your code that will simply call existing generic methods of the framework as below:
-      <pre class="language-java">
-<code>@Given("custom application action with click on '(.*)-(.*)', check value on '(.*)-(.*)' and update value on '(.*)-(.*)'")
+      <pre class="language-java"><code>@Given("custom application action with click on '(.*)-(.*)', check value on '(.*)-(.*)' and update value on '(.*)-(.*)'")
 public void customApplicationAction(String pageA, String toClickA, String pageB, String elementNameB, String pageC, String elementNameC) {
     clickOn(Page.getInstance(pageA).getPageElementByKey('-' + toClickA));
     if (!checkInputText(Page.getInstance(pageB).getPageElementByKey('-' + elementNameB), "RED")) {
@@ -390,8 +379,7 @@ public void customApplicationAction(String pageA, String toClickA, String pageB,
     } else {
         updateText(Page.getInstance(pageC).getPageElementByKey('-' + elementNameC), "ERROR");
     }
-}</code>
-    </pre>
+}</code></pre>
     <b>"clickOn"</b>, <b>"checkInputText"</b> and <b>"updateText"</b> already exist. You can find all methods <a href="https://noraui.github.io/NoraUi/noraui/application/steps/Step.html" target="_blank">here</a>
     <p>Then from the Gherkin feature file, you just need to call your code like this:</p>
     <pre class="language-gherkin"><code>@MyNewFeature
@@ -414,8 +402,7 @@ Feature: My new feature
           </ul>
       </p>
       The principle stays the same:
-      <pre class="language-java">
-<code>@Then("custom application action with '(.*)'")
+      <pre class="language-java"><code>@Then("custom application action with '(.*)'")
 public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
     Foos foos = new Foos();
     foos.deserialize(fooJsonString);
@@ -450,8 +437,7 @@ public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
     <p>
     Open your XXXContext.java class and add the following code in it (see lines with '/** Added line(s) **/' comment):
     </p>
-    <pre class="language-java">
-<code>...
+    <pre class="language-java"><code>...
     /** Added lines **/
     public static final String GOOGLE_HOME = "GOOGLE_HOME";
     public static final String GOOGLE_KEY = "google";
@@ -492,14 +478,12 @@ public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
 
         Page.setPageMainPackage("com.yourcompany.yourproject.application.pages.");
     }
-...</code>
-    </pre>
+...</code></pre>
     <p>
     Here, we just have defined in the robot Context a new "google" application linked with a selectors file named "google.ini" and pointing at a URI named "google" in the robot properties file (<i>src/main/resources/XXX.properties</i>).<br/>
     So, in this file, add the following content: <b>google=${google}</b> and in <i>src/test/resources/environments</i> filter files, you can simply set a value to the new <b>google</b> variable. An environment filter file should look like this (for instance 'dev.properties'):
     </p>
-    <pre class="language-markup">
-<code>#phantom,chrome,ie,htmlunit
+    <pre class="language-gherkin"><code>#phantom,chrome,ie,htmlunit
 browser=chrome
 timeout=20
 selectors.version=V1
@@ -509,12 +493,81 @@ google=https://www.google.com/
 http_proxy=
 https_proxy=
 no_proxy=
-locale=en</code>
-    </pre>
+locale=en</code></pre>
     <p>
     These different filter files are necessary to run your scenarios on several plateforms and manage the global configuration dynamically depending on the phase in which the robot is running. Commonly, the phases are <b>dev</b> for developement, <b>ci</b> for continuous integration and <b>prod</b> for production if the robot aims for executing operations on applications in production.
     </p>
-    <h4>6. Choose providers</h4>
+    <h4>6. Choose data providers</h4>
+    <p>
+    Before launching the test, we need to define one last thing, input and output data providers. <br/>
+    <b>Input data providers</b> are plugged to provide a data set on which the scenario will loop as many times as the lines it contains.<br/>
+    Several types are available: EXCEL, CSV, DB (ORACLE, MYSQL, POSTGRE), REST, GHERKIN. You can also create a specific one regarding your needs (see <a href="#customDataProvider">Custom data provider</a>).<br/>
+    <b>Output data providers</b> are mainly used to write results of each run on the provided data set. Other information can also be returned to the user during the execution (for instance a value read on a page element).<br/>
+    Several types are available: EXCEL, CSV, REST, CONSOLE. You can also create a specific one regarding your needs (see <a href="#customDataProvider">Custom data provider</a>).
+    </p>
+    <p>
+    For the rest of this exercice, we will configure GHERKIN as the input data provider and CONSOLE as the output data provider.<br/>That means testing data will be included directly within the 'MyNewFeature' feature file and results will be written in the default console.
+    </p>
+    <p>
+    Update your XXXRobot.properties and change these lines to set providers as described above:
+    </p>
+    <pre class="language-gherkin"><code>...
+# type of input dataProvider (EXCEL, CSV, DB, REST, GHERKIN, noraui.data.xxx.YourCustomInputDataProvider)
+dataProvider.in.type=GHERKIN
+# type of output dataProvider (EXCEL, CSV, REST, CONSOLE, noraui.data.xxx.YourCustomOutputDataProvider)
+dataProvider.out.type=CONSOLE
+...</code></pre>
+    <p>
+    We are now ready to run our first test.
+    </p>
+    <h3>Run the scenario<h3>
+    <h4>1. From Eclipse run configuration</h4>
+    <p>
+    If you initialized the maven project by using the archetype, you should already have an available run configuration in Eclipse. Otherwise, it should look like this:
+    </p>
+    <div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
+        <div class="w3-half">
+          <div class="w3-card-4">
+            <img src="img/quickstart-2.1.png" alt="Eclipse run configuration" style="width: 100%">
+            <div class="w3-container w3-light-gray">
+              <small>Eclipse run configuration</small>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <p>
+      Replace "norarobot" by the name of your project.<br/>
+      Then by running this configuration, a prompt will appear asking for the name of the feature to launch (exactly the <b>@tag</b> associated to the feature file on the top of it). Type "MyNewFeature" and the scenario is starting.
+      </p>
+    <h4>2. From Maven command</h4>
+    <p>
+    If you want to run you tests from a command prompt, the Eclipse run configuration equivalent would be:
+    </p>
+    <pre class="language-gherkin"><code>mvn clean verify -PscenarioInitiator,dev,norarobot -Dcucumber.options="--tags @MyNewFeature" -Dmaven.test.failure.ignore=true</code></pre>
+    <h3>Analyse results</h3>
+    <p>
+    As the input data are placed in <i>src/test/resources/data/in</i>, result files are placed in <i>src/test/resources/data/out</i> in the case you are using files as output (EXCEL or CSV). <br/>
+    For this tutorial, we chose the CONSOLE data output provider. So after the run, you should see the following content in the console:
+    </p>
+    <pre class="language-gherkin"><code>[2017-09-24 13:08:43]: > When I update text 'google.SearchPage-searchField' with 'test'
+[2017-09-24 13:08:43]: > When I click on 'google.SearchPage-searchButton'
+[2017-09-24 13:08:44]: > And I check that 'google.SearchPage-googleLink' is present
+[2017-09-24 13:08:44]: > And I go back to 'GOOGLE_HOME'
+[2017-09-24 13:08:47]: ****************************************************************************************
+[2017-09-24 13:08:47]: *                                                                                      *
+[2017-09-24 13:08:47]: *  Scenario: [@MyNewFeature] step 1 of 1 with 0 error(s) and 0 alert(s). 0s remaining  *
+[2017-09-24 13:08:47]: *                                                                                      *
+[2017-09-24 13:08:47]: ****************************************************************************************
+
+1 Scenarios (1 passed)
+5 Steps (5 passed)
+0m10,508s</code></pre>
+    <p>
+    In addition to providers, Cucumber generates 3 types of reports that you can find in <i>target/reports</i> folder. The HTML report is more appropriate for the majority of users. Json and Junit reports can be reinjected thereafter in other applications like dashboards or continuous integration tools (Jenkins, Travis CI...).
+    </p>
+    <h3>To go further</h3>
+    <p>Take a look at <a href="https://github.com/NoraUi/noraui-academy" target="_blank">nora-academy</a> project to create a new testing project on a local JHipster application.
+    </p>
     </div>
     <hr id="javadoc" style="border-color: teal; margin: 25px;"/>
     <div class="w3-container">
@@ -546,8 +599,7 @@ locale=en</code>
           <img style="width: 210px" src="img/cucumber-html-report-link.gif" alt="cucumber-html-report-link"/><br/><br/> 
           <img style="width: 50%" src="img/cucumber-html-report.gif" alt="cucumber-html-report"/><br/><br/>
           <p style="margin:0">On "Groovy script" of <b>Groovy Postbuild</b> part (from <a href="https://wiki.jenkins.io/display/JENKINS/Groovy+Postbuild+Plugin" target="_blank">Groovy Postbuild</a>):</p>
-          <pre class="language-java">
-<code>   
+          <pre class="language-java"><code>   
 if(expectationMatcher.count >0){
     def utCount = manager.build.logFile.text.count("Failures: 0, Errors: 0, Skipped: 0")
         String expectation = expectationMatcher[0][1]
@@ -562,8 +614,7 @@ if(expectationMatcher.count >0){
           manager.addBadge("success.gif", "Tests result match expectations")
           manager.createSummary("green.gif").appendText("<h1>Build instable but errors match expectations</h1></br>Expected: " + expectation + "<br/>Successful UT: " + utCount, false, false, false, "green")
     }
-}</code> 
-          </pre>
+}</code></pre>
           <br/>            
           <li>Travis CI</li>
           <p style="margin:0">On "travis.yml" of <b>Build</b> part:</p>
@@ -583,15 +634,14 @@ if(expectationMatcher.count >0){
       <ul>
         <li>Create a new pakage « noraui.data.xxx » (Example : « noraui.data.json »).</li>
         <li>Create a new java class (Example : « CustomJsonDataProvider »).</li>
-        <li>Extend this class to “CommonDataProvider » and implement to « DataInputProvider » and « DataOutputProvider ».</li>
-        <li>In your XxxxxRobot.properties file:</li>
+        <li>Make this this class extend “CommonDataProvider » and implement « DataInputProvider » and/or « DataOutputProvider ».</li>
+        <li>Redefine the mandatory unimplemented methods (you can refer to the NoraUi existing ones).</li>
+        <li>In your XXXRobot.properties file:</li>
       </ul>
-      <pre class="language-gherkin">
-<code># type of input dataProvider (EXCEL, CSV, SQL, REST, GHERKIN, noraui.data.xxx.YourCustomInputDataProvider)
+      <pre class="language-gherkin"><code># type of input dataProvider (EXCEL, CSV, SQL, REST, GHERKIN, noraui.data.xxx.YourCustomInputDataProvider)
 dataProvider.in.type=noraui.data.json.CustomJsonDataProvider
 # type of output dataProvider (EXCEL, CSV, REST, CONSOLE, noraui.data.xxx.YourCustomOutputDataProvider)
-dataProvider.out.type=noraui.data.json.CustomJsonDataProvider</code>
-      </pre>
+dataProvider.out.type=noraui.data.json.CustomJsonDataProvider</code></pre>
       <p>You can find a sample <a href="https://github.com/NoraUi/noraui.github.io/blob/master/howToUse/CustomJsonDataProvider.java" target="_blank">here</a></p>
     </div>
 
