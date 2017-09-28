@@ -7,8 +7,12 @@ Change log 3.0.0 (2017-09-??)
 * Upgrade cucumber version (info.cukes 1.2.5 to io.cucumber 2.0.1)
 * Upgrade cucumber version (options --tags)
 * Upgrade cucumber version (new cucumber.runtime.StepDefinitionMatch)
-* Fixed issue on french transtalor
+* Bug fixes on french transtalor
+* New counter (for continuous integration)
+* Change com.github.noraui Driver (for continuous integration) by official Oracle driver.
 
 Change log 2.6.3 (2017-09-21)
 -----------------------------
-* Fixed issue
+* ConsoleOutputDataProvider
+* GherkinInputDataProvider
+* Bug fixes
