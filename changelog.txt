@@ -7,12 +7,17 @@ Change log 3.0.0 (2017-09-??)
 * Upgrade cucumber version (info.cukes 1.2.5 to io.cucumber 2.0.1)
 * Upgrade cucumber version (options --tags)
 * Upgrade cucumber version (new cucumber.runtime.StepDefinitionMatch)
+* i18n ready
 * Bug fixes on french transtalor
 * New counter (for continuous integration)
-* Change com.github.noraui Driver (for continuous integration) by official Oracle driver.
+* NoraUi use official Oracle driver with OTN License Agreement.
 
 Change log 2.6.3 (2017-09-21)
 -----------------------------
 * ConsoleOutputDataProvider
 * GherkinInputDataProvider
 * Bug fixes
+
+Change log 2.6.2 (2017-08-21)
+-----------------------------
+* Deprecated version, upgrade please!!
