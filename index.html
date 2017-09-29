@@ -17,7 +17,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">Non-Regression Automation for User Interfaces</span>
+  <span class="w3-bar-item w3-left">Non-Regression Automation for User Interfaces</span>
+  <span class="w3-bar-item w3-right"><a href="https://github.com/NoraUi/noraui.github.io/edit/master/index.html" target="_blank" style="text-decoration:none; font-size:15px;"><i class="fa fa-edit"></i> Edit this page</a></span>
 </div>
 
 <!-- Sidebar/menu -->
@@ -65,7 +66,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </p>
   </div>
   <div class="w3-row-padding w3-center">
-  
+
     <div class="w3-third">
         <div class="w3-card-2" style="min-height: 330px" >
           <div class="w3-container w3-green"><h3>Manage your data</h3></div>
@@ -212,7 +213,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <div class="w3-container w3-light-gray">
               <small>Using NoraUi archetype in new Maven project Eclipse wizard</small>
             </div>
-          </div> 
+          </div>
         </div>
         </div>
         <p>Finish</p>
@@ -231,7 +232,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <div class="w3-container w3-light-gray">
               <small>Adding a new feature in your project</small>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
       The next step is to modify the <i>src/main/resources/scenarios.properties</i> configuration file in order to indicate the path to the feature file among existing ones.<br/>
@@ -243,14 +244,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <div class="w3-container w3-light-gray">
               <small>Setting up scenarios.properties</small>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
       We can now go back to our feature and add some basic content and a new step.<br/>
       Copy these few lines to MyNewFeature.feature.
       <pre class="language-gherkin"><code>@MyNewFeature
 Feature: My new feature
-  Scenario Outline: My new feature scenario 
+  Scenario Outline: My new feature scenario
     When I click on 'mypackage.MyPage-myElement'.
     Examples:
     #DATA
@@ -274,7 +275,7 @@ Feature: My new feature
             <div class="w3-container w3-light-gray">
               <small>Example of auto-completion for existing steps</small>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
       You can find all methods <a href="https://noraui.github.io/NoraUi/noraui/application/steps/CommonSteps.html" target="_blank">here</a><br/><br/>
@@ -283,7 +284,7 @@ Feature: My new feature
       <b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b>
       </div>
       The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">'pages' subpackages</span> of your project.<br/>
-      
+
       <p>Then we want to continue on writing a more complex scenario in MyFeature.feature. So let's go back to it and complete the existing steps. <br/><b>The objective will be to do a simple google reasearch and check the results to find the first link.</b><br/>The Gherkin content will look like this:
       <pre class="language-gherkin"><code>@MyNewFeature
 Feature: My new feature
@@ -339,7 +340,7 @@ name=btnK
 [GOO_SEA-googleLink]
 xpath=(//h3//a)[1]</code></pre>
       <p>
-      All you have to know about selectors is here. We easily locate searchField and searchButton using id and name HTML attributes. <br/>For the googleLink element, we use xpath to get the first link displayed on the results page. 
+      All you have to know about selectors is here. We easily locate searchField and searchButton using id and name HTML attributes. <br/>For the googleLink element, we use xpath to get the first link displayed on the results page.
       </p>
       <h4>4. Define your own steps</h4>
       <p><b>You should use as much as possible the NoraUi generic steps for basic purposes.</b><br/>
@@ -353,7 +354,7 @@ xpath=(//h3//a)[1]</code></pre>
         super();
         this.searchPage = (SearchPage) Page.getInstance(SearchPage.class);
     }
-    
+
    @Then("The GOOGLE search page is displayed")
    public void checkGoogleSearchPage() throws FailureException {
        if (!searchPage.checkPage()) {
@@ -532,7 +533,7 @@ dataProvider.out.type=CONSOLE
             <div class="w3-container w3-light-gray">
               <small>Eclipse run configuration</small>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
       <p>
@@ -575,7 +576,7 @@ dataProvider.out.type=CONSOLE
       <p>Nora-UI framework has a complete technical documentation for developers.</p>
       <p>You can find all official java doc <a href="https://noraui.github.io/NoraUi/" target="_blank">here</a></p>
     </div>
-    
+
     <hr id="continuousIntegration" style="border-color: teal; margin: 25px;"/>
     <div class="w3-container">
       <h2><i class="fa fa-cogs"></i> Continuous Integration</h2>
@@ -596,10 +597,10 @@ dataProvider.out.type=CONSOLE
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML directory to archive: target/reports/html</p>
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Index page[s]: index.html</p>
           <p style="margin-top:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Report title: Cucumber HTML Report</p>
-          <img style="width: 210px" src="img/cucumber-html-report-link.gif" alt="cucumber-html-report-link"/><br/><br/> 
+          <img style="width: 210px" src="img/cucumber-html-report-link.gif" alt="cucumber-html-report-link"/><br/><br/>
           <img style="width: 50%" src="img/cucumber-html-report.gif" alt="cucumber-html-report"/><br/><br/>
           <p style="margin:0">On "Groovy script" of <b>Groovy Postbuild</b> part (from <a href="https://wiki.jenkins.io/display/JENKINS/Groovy+Postbuild+Plugin" target="_blank">Groovy Postbuild</a>):</p>
-          <pre class="language-java"><code>   
+          <pre class="language-java"><code>
 if(expectationMatcher.count >0){
     def utCount = manager.build.logFile.text.count("Failures: 0, Errors: 0, Skipped: 0")
         String expectation = expectationMatcher[0][1]
@@ -615,7 +616,7 @@ if(expectationMatcher.count >0){
           manager.createSummary("green.gif").appendText("<h1>Build instable but errors match expectations</h1></br>Expected: " + expectation + "<br/>Successful UT: " + utCount, false, false, false, "green")
     }
 }</code></pre>
-          <br/>            
+          <br/>
           <li>Travis CI</li>
           <p style="margin:0">On "travis.yml" of <b>Build</b> part:</p>
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script:</p>
@@ -693,7 +694,7 @@ function goTo(el) {
     menuItems[i].className = menuItems[i].className.replace(/w3-teal/, "");
   }
   el.className += " w3-teal";
-  w3_close(); 
+  w3_close();
 }
 </script>
 
