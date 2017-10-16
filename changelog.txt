@@ -11,6 +11,7 @@ Change log 3.0.0 (2017-09-??)
 * Bug fixes on french transtalor
 * New counter (for continuous integration)
 * NoraUi use official Oracle driver with OTN License Agreement.
+* Instance management by Google Guice
 
 Change log 2.6.3 (2017-09-21)
 -----------------------------
