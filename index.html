@@ -545,7 +545,7 @@ dataProvider.out.type=CONSOLE
     <p>
     If you want to run you tests from a command prompt, the Eclipse run configuration equivalent would be:
     </p>
-    <pre class="language-gherkin"><code>mvn clean verify -PscenarioInitiator,dev,norarobot -Dcucumber.options="--tags @MyNewFeature" -Dmaven.test.failure.ignore=true</code></pre>
+    <pre class="language-gherkin"><code>mvn clean verify -PscenarioInitiator,dev,norarobot -Dcucumber.options="--tags '@MyNewFeature'" -Dmaven.test.failure.ignore=true</code></pre>
     <h3>Analyse results</h3>
     <p>
     As the input data are placed in <i>src/test/resources/data/in</i>, result files are placed in <i>src/test/resources/data/out</i> in the case you are using files as output (EXCEL or CSV). <br/>
@@ -587,7 +587,7 @@ dataProvider.out.type=CONSOLE
           <li>Jenkins</li>
           <p>Use a Maven job.</p>
           <p style="margin:0">On "Goal" of <b>Build</b> part:</p>
-          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clean test javadoc:javadoc -Dcucumber.options="--tags @LoginLogout" -Pjavadoc,preIC,scenarioInitiator,ci,unit-tests,postIC,analyze -Dmaven.test.failure.ignore=true sonar:sonar</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clean test javadoc:javadoc -Dcucumber.options="--tags '@LoginLogout'" -Pjavadoc,preIC,scenarioInitiator,ci,unit-tests,postIC,analyze -Dmaven.test.failure.ignore=true sonar:sonar</p>
           <p style="margin-bottom:0">On "Execute shell script" of <b>Post Steps</b> part:</p>
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cp ${WORKSPACE}/src/test/resources/dev/formatter.js ${WORKSPACE}/target/reports/html/formatter.js</p>
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cp ${WORKSPACE}/src/test/resources/dev/index.html ${WORKSPACE}/target/reports/html/index.html</p>
