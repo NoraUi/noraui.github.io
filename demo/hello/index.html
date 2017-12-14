@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>NoraUi Demo</title>
+	<title>NoraUi Demo</title>
 </head>
 <body>
-    <h1 id="big_title">This is a demo for NORAUI (Non-Regression Automation for User Interfaces).</h1>
-    <h1 id="visibility_hidden_title" style="visibility: hidden">visibility hidden for title.</h1>
-    <h1 id="display_none_title" style="display: none">display none for title.</h1>
-    <p>This is a input field:<input id="input_text" type="text"></p>
-    <p>This is a radio:
-        <INPUT type= "radio" name="rate" value="day"> day rate
-        <INPUT type= "radio" name="rate" value="night"> night rate
-        <INPUT type= "radio" name="rate" value="week-end"> WE rate
-    </p>
-    <p>This is a checkbox:
-        <input type="checkbox" id="agree" name="agree" value="yes"> I agree<br>
-        <input type="checkbox" name="agree" value="no" checked> I do not agree
-    <p>This is a select:
-        <select id="input_select">
-            <option value="none"></option>
-            <option value="Rennes">Rennes</option>
-            <option value="Paris">Paris</option>
-        </select>
-    </p>
-    <p>This is a button:<input id="submit" type="submit"></p>
-    <p>Open popup   N°1: <input id="openPopup1" type="submit" onclick="open('popup1.html', 'Popup1', 'scrollbars=1,resizable=1,height=600,width=500'); return false;">   N°2: <input id="openPopup2" type="submit" onclick="open('popup2.html', 'Popup2', 'scrollbars=1,resizable=1,height=600,width=500'); return false;">   N°3: <input id="openPopup3" type="submit" onclick="open('popup3.html', 'Popup3', 'scrollbars=1,resizable=1,height=600,width=500'); return false;"></p>
-    <p style="height: 150px;">This is a onclick by js test: <a onclick="alert('OK');alertDate();" style="display:block;color: #FE7F88;background-image: url('Smile.png'); width: 150px; height: 150px;" name="smilejs" title="smilejs"></a></p>
-    <p style="height: 150px;">This is a onclick test: <a onclick="alert('OK');alertDate();" style="display:block;color: #FE7F88;background-image: url('Smile.png'); width: 150px; height: 150px;" name="smile" title="smile"> </a></p>
-    <input id="input_current_date" type="text">
-<script>
-var count = 0;
-document.getElementById("input_current_date").value = count;
-function alertDate() {
-	count = count + 1;
-	document.getElementById("input_current_date").value = count;
-}
-</script>
-</body>
-</html>
+	<h1 id="big_title">This is a demo for NORAUI (Non-Regression Automation for User Interfaces).</h1>
+	<h1 id="visibility_hidden_title" style="visibility: hidden">visibility hidden for title.</h1>
+	<h1 id="display_none_title" style="display: none">display none for title.</h1>
+	<p>This is a input field:<input id="input_text" type="text"></p>
+	<p>This is a radio:
+		<INPUT type= "radio" name="rate" value="day"> day rate
+			<INPUT type= "radio" name="rate" value="night"> night rate
+				<INPUT type= "radio" name="rate" value="week-end"> WE rate
+				</p>
+				<p>This is a checkbox:
+					<input type="checkbox" id="agree" name="agree" value="yes"> I agree<br>
+					<input type="checkbox" name="agree" value="no" checked> I do not agree
+					<p>This is a select:
+						<select id="input_select">
+							<option value="none"></option>
+							<option value="Rennes">Rennes</option>
+							<option value="Paris">Paris</option>
+						</select>
+					</p>
+					<p>This is a button:<input id="submit" type="submit"></p>
+					<p>Open popup   N°1: <input id="openPopup1" type="submit" onclick="open('popup1.html', 'Popup1', 'scrollbars=1,resizable=1,height=600,width=500'); return false;">   N°2: <input id="openPopup2" type="submit" onclick="open('popup2.html', 'Popup2', 'scrollbars=1,resizable=1,height=600,width=500'); return false;">   N°3: <input id="openPopup3" type="submit" onclick="open('popup3.html', 'Popup3', 'scrollbars=1,resizable=1,height=600,width=500'); return false;"></p>
+					<p><input id="changeValue" type="submit" onclick="setTimeout(function(){ document.getElementById('changeValue').value='My value has changed'; }, 2000);" value="My value will change">
+						<p style="height: 150px;">This is a onclick by js test: <a onclick="alert('OK');alertDate();" style="display:block;color: #FE7F88;background-image: url('Smile.png'); width: 150px; height: 150px;" name="smilejs" title="smilejs"></a></p>
+						<p style="height: 150px;">This is a onclick test: <a onclick="alert('OK');alertDate();" style="display:block;color: #FE7F88;background-image: url('Smile.png'); width: 150px; height: 150px;" name="smile" title="smile"> </a></p>
+						<input id="input_current_date" type="text">
+						<script>
+							var count = 0;
+							document.getElementById("input_current_date").value = count;
+							function alertDate() {
+								count = count + 1;
+								document.getElementById("input_current_date").value = count;
+							}
+						</script>
+					</body>
+					</html>
