@@ -1,7 +1,7 @@
 ---
 title: NoraUi
 ---
-Présentation général de NoraUi
+Présentation générale de NoraUi
 
 ![logo](img/noraui.png)
 
