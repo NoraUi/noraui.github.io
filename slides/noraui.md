@@ -6,9 +6,9 @@ Présentation général de NoraUi
 ![logo](img/noraui.png)
 
 ---
-# Sommaire
+# Summary
 
-* [Chapter 1](#/2)
+* [A solution in addition to your unit tests](#/2)
 * [Chapter 2](#/3)
 * [Chapter 3](#/4)
 * [Chapter 3a](#/4/1)
