@@ -1,8 +1,14 @@
-Change log next version
+Change log next version (3.0.2)
 -----------------------
 * Fixed issue
+* Sreenshot feature
+* Best use for Angular 5
 
-Change log 3.0.0 (2017-09-??)
+Change log 3.0.1 (2017-12-07)
+-----------------------------
+* Download file feature
+
+Change log 3.0.0 (2017-11-12)
 -----------------------------
 * Upgrade cucumber version (info.cukes 1.2.5 to io.cucumber 2.0.1)
 * Upgrade cucumber version (options --tags)
@@ -12,6 +18,8 @@ Change log 3.0.0 (2017-09-??)
 * New counter (for continuous integration)
 * NoraUi use official Oracle driver with OTN License Agreement.
 * Instance management by Google Guice
+* NoraUi use slf4j+logback instead of log4j
+* NoraUi use a new package (com.github.noraui instead of noraui)
 
 Change log 2.6.3 (2017-09-21)
 -----------------------------
