@@ -14,5 +14,4 @@
 
 # License
 
-[![license](https://img.shields.io/github/license/NoraUi/noraui.github.io.svg)](https://github.com/NoraUi/noraui.github.io/blob/master/LICENSE)
-BSD, See LICENSE for details
+[![license](https://img.shields.io/github/license/NoraUi/noraui.github.io.svg)](https://github.com/NoraUi/noraui.github.io/blob/master/LICENSE) See LICENSE for details
