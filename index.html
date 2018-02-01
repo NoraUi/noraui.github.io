@@ -267,7 +267,7 @@ Feature: My new feature
       </ul>
       <div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
         <p>Here is a piece of advice for Eclipse: there is a very useful Cucumber JVM Eclipse Plugin that you can install via "Install New Software" menu via this address : https://cucumber.io/cucumber-eclipse/update-site.<br/>The plugin indicates for example, non-implemented steps via highlighting, or existing steps via auto-completion (Ctrl+Space) as you can see on the screenshot below.</p>
-        <p>To use external libraries as NoraUi within your Gherkin files, in Eclipse preferences go to Cucumber > User Settings. Then add 'noraui' root package to your classpath. Now your are able to use generic steps (click, type, check, open a page...) from NoraUi dependency in your own project.</p>
+        <p>To use external libraries as NoraUi within your Gherkin files, in Eclipse preferences go to Cucumber > User Settings. Then add 'noraui' root package to your classpath. Now you are able to use generic steps (click, type, check, open a page...) from NoraUi dependency in your own project.</p>
       </div>
       <div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
         <div>
@@ -286,7 +286,7 @@ Feature: My new feature
       </div>
       The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">'pages' subpackages</span> of your project.<br/>
 
-      <p>Then we want to continue on writing a more complex scenario in MyFeature.feature. So let's go back to it and complete the existing steps. <br/><b>The objective will be to do a simple google reasearch and check the results to find the first link.</b><br/>The Gherkin content will look like this:
+      <p>Then we want to continue on writing a more complex scenario in MyFeature.feature. So let's go back to it and complete the existing steps. <br/><b>The objective will be to do a simple google research and check the results to find the first link.</b><br/>The Gherkin content will look like this:
       <pre class="language-gherkin"><code>@MyNewFeature
 Feature: My new feature
   Scenario Outline: My new feature scenario
@@ -302,7 +302,7 @@ Feature: My new feature
     |1|test|
     #END</code></pre>
       <h4>2. Create a Page class</h4>
-      <p>In order to reference target Page elements, we need to instanciate a new SearchPage in a new google package (under <i>application.pages</i>).</p>
+      <p>In order to reference target Page elements, we need to instantiate a new SearchPage in a new google package (under <i>application.pages</i>).</p>
       <p>Paste the following Java code into SeachPage class:</p>
 <pre class="language-java"><code>public class SearchPage extends Page {
 
@@ -362,7 +362,7 @@ xpath=(//h3//a)[1]</code></pre>
            new Result.Failure<>("google", "ERROR_MESSAGE", true, searchPage.getCallBack());
        }
    }</code></pre>
-   In this sample, we retrieve the <b>SearchPage</b> from <b>Page factory</b> and use it after in an <b>Gherkin exposed</b> (@Then...) public method to do a simple validation. If the validation fails, a new <b>Result.Failure</b> object is created to manage error reporting, screenshooting and callback invokation (we will see error management and reporting in incoming parts).
+   In this sample, we retrieve the <b>SearchPage</b> from <b>Page factory</b> and use it after in an <b>Gherkin exposed</b> (@Then...) public method to do a simple validation. If the validation fails, a new <b>Result.Failure</b> object is created to manage error reporting, screenshooting and callback invocation (we will see error management and reporting in incoming parts).
    <p>You can go further by combining NoraUi generic methods calls inside one Step method.<br/>
       Example:
           <ul>
@@ -497,7 +497,7 @@ https_proxy=
 no_proxy=
 locale=en</code></pre>
     <p>
-    These different filter files are necessary to run your scenarios on several plateforms and manage the global configuration dynamically depending on the phase in which the robot is running. Commonly, the phases are <b>dev</b> for developement, <b>ci</b> for continuous integration and <b>prod</b> for production if the robot aims for executing operations on applications in production.
+    These different filter files are necessary to run your scenarios on several platforms and manage the global configuration dynamically depending on the phase in which the robot is running. Commonly, the phases are <b>dev</b> for development, <b>ci</b> for continuous integration and <b>prod</b> for production if the robot aims for executing operations on applications in production.
     </p>
     <h4>6. Choose data providers</h4>
     <p>
@@ -508,7 +508,7 @@ locale=en</code></pre>
     Several types are available: EXCEL, CSV, REST, CONSOLE. You can also create a specific one regarding your needs (see <a href="#customDataProvider">Custom data provider</a>).
     </p>
     <p>
-    For the rest of this exercice, we will configure GHERKIN as the input data provider and CONSOLE as the output data provider.<br/>That means testing data will be included directly within the 'MyNewFeature' feature file and results will be written in the default console.
+    For the rest of this exercise, we will configure GHERKIN as the input data provider and CONSOLE as the output data provider.<br/>That means testing data will be included directly within the 'MyNewFeature' feature file and results will be written in the default console.
     </p>
     <p>
     Update your XXXRobot.properties and change these lines to set providers as described above:
@@ -634,8 +634,8 @@ if(expectationMatcher.count >0){
       <h2><i class="fa fa-database"></i> Custom data provider</h2>
       <p>You can create a custom data provider (Java language).</p>
       <ul>
-        <li>Create a new pakage « noraui.data.xxx » (Example : « noraui.data.json »).</li>
-        <li>Create a new java class (Example : « CustomJsonDataProvider »).</li>
+        <li>Create a new package « noraui.data.xxx » (Example: « noraui.data.json »).</li>
+        <li>Create a new java class (Example: « CustomJsonDataProvider »).</li>
         <li>Make this this class extend “CommonDataProvider » and implement « DataInputProvider » and/or « DataOutputProvider ».</li>
         <li>Redefine the mandatory unimplemented methods (you can refer to the NoraUi existing ones).</li>
         <li>In your XXXRobot.properties file:</li>
