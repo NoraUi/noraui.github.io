@@ -324,7 +324,7 @@ Feature: My new feature
 }</code></pre>
 
       <p>Your application pages must always extend abstract class <b>Page</b>.<br/>
-      From top to botton, several instances of <b>PageElement</b> are created to make the link Gherkin feature. <br/>The constructor defines the application this Page comes from (we will see after how to define applications in <b>XXXContext</b> class), its unique key and a callback in case of failure of any behavior related to this Page. <br/>Finally the <b>checkPage()</b> method can be override to use your own way to validate the Page is correctly opened in the web browser driver (by checking current page title for instance).
+      From top to bottom, several instances of <b>PageElement</b> are created to make the link Gherkin feature. <br/>The constructor defines the application this Page comes from (we will see after how to define applications in <b>XXXContext</b> class), its unique key and a callback in case of failure of any behavior related to this Page. <br/>Finally the <b>checkPage()</b> method can be override to use your own way to validate the Page is correctly opened in the web browser driver (by checking current page title for instance).
       </p>
       <h4>3. Define selectors</h4>
       <p>Once your new Page implemented, the next action consists of defining the way to select its PageElements when it is targeted by the web driver.<br/>
