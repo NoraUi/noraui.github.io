@@ -1,5 +1,10 @@
-Change log next version (3.0.2)
+Change log next version (3.1.0)
 -----------------------
+* Instance management of services by Google Guice
+* Video capture feature
+
+Change log 3.0.2 (2018-02-0()
+-----------------------------
 * Fixed issue
 * Sreenshot feature
 * Best use for Angular 5
