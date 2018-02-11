@@ -12,6 +12,9 @@
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -27,33 +30,21 @@
 				<section>
 					<h1>NORAUI</h1>
 					<h3>NOn Regression Automation for User Interfaces</h3>
-					<p>
-						<small>Initiated by <a href="https://github.com/sgrillon14">Stéphane GRILLON</a> & <a href="https://github.com/ArKniiD">Nicolas HALLOUIN</a></small>
-					</p>
+					<p><small><i class="fab fa-linkedin"></i> <i class="fab fa-github"></i> <a href="https://github.com/sgrillon14">Stéphane GRILLON</a><br/><i class="fab fa-linkedin"></i> <i class="fab fa-github"></i> <a href="https://github.com/ArKniiD">Nicolas HALLOUIN</a></small></p>
 				</section>
 				<!-- Contribute on GitHub slides -->
 				<section>
 					<section>
 						<h2>Contribute on GitHub</h2>
-							<p>
-								<b>Organization</b>
-								<a href="https://github.com/NoraUi" target="_blank"><img style="margin: 0; border: none; vertical-align:middle;" alt="@NoraUi" src="https://avatars2.githubusercontent.com/u/26145171?s=150&amp;v=4"></a>
-							</p>
+						<p>
+							<b>Organization</b>
+							<a href="https://github.com/NoraUi" target="_blank"><img style="margin: 0; border: none; vertical-align:middle;" alt="@NoraUi" src="https://avatars2.githubusercontent.com/u/26145171?s=150&amp;v=4"></a>
+						</p>
 						<p class="fragment"><a href="https://github.com/NoraUi/NoraUi" target="_blank">NoraUi</a> - Framework source code</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
+						<p class="fragment"><i class="fab fa-github"></i> NoraUi<br/><i class="fab fa-stack-overflow"></i> noraui</p>
 						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
+							NoraUi est Open Source. Toutes les contributions sont les bienvenue.
 						</aside>
-						<br>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
 						<br>
 					</section>
 				</section>
@@ -117,15 +108,74 @@
 						<p class="fragment">- 1er scénario sur votre application Web.</p>
 						<p class="fragment">- Configuration de votre intégration continue.</p>
 					</section>
+					<section>
+						<h2>Générer un robot via l'archétype Maven.</h2>
+						<br>
+						<p>> mvn ...</p>
+					</section>
+					<section>
+						<h2>1er run sur une interface de démo (login/logout).</h2>
+						<br>
+						<p>...</p>
+					</section>
+					<section>
+						<h2>1er scénario sur votre application Web.</h2>
+						<br>
+						<p>...</p>
+					</section>
+					<section>
+						<h2>Configuration de votre intégration continue.</h2>
+						<br>
+						<p>...</p>
+					</section>
 				</section>
 				<!-- Sous le capot de NoraUi -->
 				<section>
 					<section>
 						<h2>Sous le capot de NoraUi</h2>
-						<p class="fragment">- Gherkin/Cucumber/Selenium</p>
-						<p class="fragment">- Data Provider (Excel, CSV, SQL, REST, CustomDataProvider, ...)</p>
-						<p class="fragment">- Résultats et rapports</p>
+						<p class="fragment">- Gherkin/Cucumber/Selenium/Sélecteur.</p>
+						<p class="fragment">- Data Provider (Excel, CSV, SQL, REST, CustomDataProvider, ...).</p>
+						<p class="fragment">- Résultats et rapports.</p>
 						<p class="fragment">- ...</p>
+					</section>
+					<section>
+						<h2>Gherkin/Cucumber/Selenium/Sélecteur</h2>
+						<br>
+						<p>...</p>
+					</section>
+					<section>
+						<h2>Gherkin</h2>
+						<br>
+						<p>...</p>
+					</section>
+					<section>
+						<h2>Cucumber</h2>
+						<br>
+						<pre><code class="hljs" data-trim contenteditable>
+public class MyOwnSteps extends Step {
+	
+	@Inject
+	private SearchPage searchPage;
+
+	@Alors("La page de recherche GOOGLE est affichée")
+	@Then("The GOOGLE search page is displayed")
+	public void checkGoogleSearchPage() throws FailureException {
+		if (!searchPage.checkPage()) {
+			new Result.Failure<>("google", "ERROR_MESSAGE", true, searchPage.getCallBack());
+		}
+	}
+
+}                   	</code></pre>
+					</section>
+					<section>
+						<h2>Data Provider (Excel, CSV, SQL, REST, CustomDataProvider, ...).</h2>
+						<br>
+						<p>...</p>
+					</section>
+					<section>
+						<h2>Résultats et rapports.</h2>
+						<br>
+						<p>...</p>
 					</section>
 				</section>
 				<section>
