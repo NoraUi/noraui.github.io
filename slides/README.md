@@ -7,7 +7,7 @@ Some reveal.js features, like external Markdown and speaker notes, require that 
 
 1. Install [Node.js](http://nodejs.org/) (4.0.0 or later)
 
-1. Clone the reveal.js repository
+1. Clone the noraui.github.io repository
    ```sh
    $ git clone https://github.com/NoraUi/noraui.github.io.git
    ```
