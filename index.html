@@ -48,6 +48,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	<a href="#commandLineInterface" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-terminal fa-fw"></i>  CLI</a>
     <a href="#javadoc" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-book fa-fw"></i>  Official java doc</a>
     <a href="#continuousIntegration" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-cogs fa-fw"></i>  Continuous Integration</a>
+	<a href="#zap" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-bolt fa-fw"></i>  OWASP Zed Attack Proxy</a>
     <a href="#customDataProvider" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-database fa-fw"></i>  Custom data provider</a>
 	<a href="#ourClients" class="w3-bar-item w3-button w3-padding menu-item" onclick="goTo(this);"><i class="fa fa-thumbs-o-up fa-fw"></i>  Our clients</a><br><br>
   </div>
@@ -576,7 +577,7 @@ dataProvider.out.type=CONSOLE
 	
 	<hr id="commandLineInterface" style="border-color: teal; margin: 25px;"/>
     <div class="w3-container">
-      <h2><i class="fa fa-book"></i> Command Line Interface</h2>
+      <h2><i class="fa fa-terminal"></i> Command Line Interface</h2>
       <p>Nora-UI framework a CLI (Command Line Interface) for developers.</p>
       <p>You can add a new target application, add a new scenario, ... using a command line.</p>
 	  <div class="w3-card white">
@@ -585,19 +586,19 @@ dataProvider.out.type=CONSOLE
 		</div>
 		<ul class="w3-ul w3-border-top">
 		  <li>
-		    <h3>Add a new target application</h3>
-		    <p>
-		      <img style="width: 50%" src="img/cli-3.png" alt="add a new target application by CLI"/>
-		      <br/>
-		      <img style="width: 50%" src="img/cli-4.png" alt="add a new target application by CLI"/>
+		    <h3>add a new target application</h3>
+			<p>
+			    <img style="width: 50%" src="img/cli-3.png" alt="cucumber-html-report"/>
+				<br/>
+			    <img style="width: 50%" src="img/cli-4.png" alt="cucumber-html-report"/>
 		    </p>
 		  </li>
 		  <li>
-		    <h3>Add a new scenario</h3>
-		    <p>
-		      <img style="width: 50%" src="img/cli-1.png" alt="Add a new scenario by CLI"/>
-		      <br/>
-		      <img style="width: 50%" src="img/cli-2.png" alt="Add a new scenario by CLI"/>
+			<h3>Add a new scenario</h3>
+			<p>
+			    <img style="width: 50%" src="img/cli-1.png" alt="cucumber-html-report"/>
+				<br/>
+			    <img style="width: 50%" src="img/cli-2.png" alt="cucumber-html-report"/>
 		    </p>
 		  </li>
 		</ul>
@@ -662,6 +663,21 @@ if(expectationMatcher.count >0){
       </ul>
     </div>
 
+	<hr id="zap" style="border-color: teal; margin: 25px;"/>
+    <div class="w3-container">
+      <h2><i class="fa fa-bolt"></i> OWASP Zed Attack Proxy (ZAP)</h2>
+      <p>Nora-UI framework can be use to OWASP Zed Attack Proxy</p>
+      <p>You can find all official doc <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project" target="_blank">here</a></p>
+	  <p>Nora-UI configuration (robot\src\test\resources\environments\dev.properties):<pre class="language-gherkin"><code># proxy configuration
+http_proxy=http://localhost:8087
+https_proxy=http://localhost:8087
+no_proxy=</code></pre><br/>Start Zed Attack Proxy (ZAP) on a particular address and port. ZAP provides a setting for that: Open Options and then Local Proxies and specify your proxy settings.<br/>
+	    <img style="width: 50%" src="img/zap-local-proxies.png" alt="zap-local-proxies"/>
+		<br/>Besides that it should be possible to configure the proxy used by ZAP like you would do for any other Java based application. ZAP provides a setting for that: Open Options and then Connection and specify your proxy settings.<br/>
+		<img style="width: 50%" src="img/zap-proxy.png" alt="zap-proxy-yourcompany"/>
+      <p>
+    </div>
+	
     <hr id="customDataProvider" style="border-color: teal; margin: 25px;"/>
     <div class="w3-container">
       <h2><i class="fa fa-database"></i> Custom data provider</h2>
