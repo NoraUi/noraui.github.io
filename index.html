@@ -316,7 +316,7 @@ Feature: My new feature
     public SearchPage() {
         super();
         this.application = "google";
-        this.pageKey = "GOO_SEA";
+        this.pageKey = "GOOGLE_SEA";
         this.callBack = Context.getCallBack("RESTART_WEB_DRIVER");
     }
 
@@ -335,13 +335,13 @@ Feature: My new feature
       <p>
       Under <i>src/main/resources/selectors/V1</i>, create a new file named google.ini and paste the following content:
       </p>
-      <pre class="language-markup"><code>[GOO_SEA-searchField]
+      <pre class="language-markup"><code>[GOOGLE_SEA-searchField]
 id=lst-ib
 
-[GOO_SEA-searchButton]
+[GOOGLE_SEA-searchButton]
 name=btnK
 
-[GOO_SEA-googleLink]
+[GOOGLE_SEA-googleLink]
 xpath=(//h3//a)[1]</code></pre>
       <p>
       All you have to know about selectors is here. We easily locate searchField and searchButton using id and name HTML attributes. <br/>For the googleLink element, we use xpath to get the first link displayed on the results page.
@@ -464,26 +464,43 @@ public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
         logger.info("NoraRobotContext > initializeRobot()");
 
         // Urls configuration
-        logogameHome = setProperty(LOGOGAME_KEY, applicationProperties);
-        /** Added line **/
-        googleHome = setProperty(GOOGLE_KEY, applicationProperties);
+		/** Added line or use the NORAUI CLI directly **/
+        googleHome = getProperty(GOOGLE_KEY, applicationProperties);
+        logogameHome = getProperty(LOGOGAME_KEY, applicationProperties);
 
         // Selectors configuration
-        initApplicationDom(clazz.getClassLoader(), selectorsVersion, LOGOGAME_KEY);
-        /** Added line **/
+		/** Added line or use the NORAUI CLI directly **/
         initApplicationDom(clazz.getClassLoader(), selectorsVersion, GOOGLE_KEY);
+        initApplicationDom(clazz.getClassLoader(), selectorsVersion, LOGOGAME_KEY);
 
+		// Exception Callbacks
+		/** Added line or use the NORAUI CLI directly **/
+		exceptionCallbacks.put(GO_TO_GOOGLE_HOME, STEPS_BROWSER_STEPS_CLASS_QUALIFIED_NAME, GO_TO_URL_METHOD_NAME, GOOGLE_HOME);
+		/** Added line or use the NORAUI CLI directly **/
+		exceptionCallbacks.put(CLOSE_WINDOW_AND_SWITCH_TO_GOOGLE_HOME, STEPS_BROWSER_STEPS_CLASS_QUALIFIED_NAME, "closeWindowAndSwitchTo", GOOGLE_KEY, GOOGLE_HOME);
+		/** Added line or use the NORAUI CLI directly **/
+		exceptionCallbacks.put(CLOSE_ALL_WINDOWS_AND_SWITCH_TO_GOOGLE_HOME, STEPS_BROWSER_STEPS_CLASS_QUALIFIED_NAME, "closeAllWindowsAndSwitchTo", GOOGLE_KEY);
         exceptionCallbacks.put(GO_TO_LOGOGAME_HOME, STEPS_BROWSER_STEPS_CLASS_QUALIFIED_NAME, GO_TO_URL_METHOD_NAME, LOGOGAME_HOME);
         exceptionCallbacks.put(CLOSE_WINDOW_AND_SWITCH_TO_LOGOGAME_HOME, STEPS_BROWSER_STEPS_CLASS_QUALIFIED_NAME, "closeWindowAndSwitchTo", LOGOGAME_KEY, LOGOGAME_HOME);
         exceptionCallbacks.put(CLOSE_ALL_WINDOWS_AND_SWITCH_TO_LOGOGAME_HOME, STEPS_BROWSER_STEPS_CLASS_QUALIFIED_NAME, "closeAllWindowsAndSwitchTo", LOGOGAME_KEY);
 
-        applications.put(LOGOGAME_KEY, new Application(LOGOGAME_HOME, logogameHome));
-        /** Added line **/
+		// applications mapping
+		/** Added line or use the NORAUI CLI directly **/
         applications.put(GOOGLE_KEY, new Application(GOOGLE_HOME, googleHome));
-
-        Page.setPageMainPackage("com.yourcompany.yourproject.application.pages.");
+        applications.put(LOGOGAME_KEY, new Application(LOGOGAME_HOME, logogameHome));
+        
+        Page.setPageMainPackage("com.your.company.application.pages.");
     }
-...</code></pre>
+	...	
+    // home getters
+	/** Added block or use the NORAUI CLI directly **/
+    public String getGoogleHome() {
+        return googleHome;
+    }
+    public String getLogogameHome() {
+        return logogameHome;
+    }
+</code></pre>
     <p>
     Here, we just have defined in the robot Context a new "google" application linked with a selectors file named "google.ini" and pointing at a URI named "google" in the robot properties file (<i>src/main/resources/XXX.properties</i>).<br/>
     So, in this file, add the following content: <b>google=${google}</b> and in <i>src/test/resources/environments</i> filter files, you can simply set a value to the new <b>google</b> variable. An environment filter file should look like this (for instance 'dev.properties'):
@@ -683,16 +700,16 @@ no_proxy=</code></pre><br/>Start Zed Attack Proxy (ZAP) on a particular address 
       <h2><i class="fa fa-database"></i> Custom data provider</h2>
       <p>You can create a custom data provider (Java language).</p>
       <ul>
-        <li>Create a new package « noraui.data.xxx » (Example: « noraui.data.json »).</li>
+        <li>Create a new package « xxx.xxx.xxx.data.xxx » (Example: « com.your.company.data.json »).</li>
         <li>Create a new java class (Example: « CustomJsonDataProvider »).</li>
         <li>Make this this class extend “CommonDataProvider » and implement « DataInputProvider » and/or « DataOutputProvider ».</li>
         <li>Redefine the mandatory unimplemented methods (you can refer to the NoraUi existing ones).</li>
         <li>In your XXXRobot.properties file:</li>
       </ul>
-      <pre class="language-gherkin"><code># type of input dataProvider (EXCEL, CSV, SQL, REST, GHERKIN, noraui.data.xxx.YourCustomInputDataProvider)
-dataProvider.in.type=noraui.data.json.CustomJsonDataProvider
-# type of output dataProvider (EXCEL, CSV, REST, CONSOLE, noraui.data.xxx.YourCustomOutputDataProvider)
-dataProvider.out.type=noraui.data.json.CustomJsonDataProvider</code></pre>
+      <pre class="language-gherkin"><code># type of input dataProvider (EXCEL, CSV, SQL, REST, GHERKIN, com.your.company.data.xxx.YourCustomInputDataProvider)
+dataProvider.in.type=com.your.company.data.json.CustomJsonDataProvider
+# type of output dataProvider (EXCEL, CSV, REST, CONSOLE, com.your.company.data.xxx.YourCustomOutputDataProvider)
+dataProvider.out.type=com.your.company.data.json.CustomJsonDataProvider</code></pre>
       <p>You can find a sample <a href="https://github.com/NoraUi/noraui.github.io/blob/master/howToUse/CustomJsonDataProvider.java" target="_blank">here</a></p>
     </div>
 	
