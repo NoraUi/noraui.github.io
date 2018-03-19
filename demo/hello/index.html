@@ -1,42 +1,141 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>NoraUi Demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+<style type="text/css">
+	.dropdown-submenu {
+		position: relative;
+	}
+
+	.dropdown-submenu a::after {
+		transform: rotate(-90deg);
+		position: absolute;
+		right: 6px;
+		top: .8em;
+	}
+
+	.dropdown-submenu .dropdown-menu {
+		top: 0;
+		left: 100%;
+		margin-left: .1rem;
+		margin-right: .1rem;
+	}
+</style>
+
 <body>
-	<h1 id="big_title">This is a demo for NORAUI (Non-Regression Automation for User Interfaces).</h1>
-	<h1 id="visibility_hidden_title" style="visibility: hidden">visibility hidden for title.</h1>
-	<h1 id="display_none_title" style="display: none">display none for title.</h1>
-	<p>This is a input field:<input id="input_text" type="text"></p>
-	<p>This is a file input field:<input id="file_input_text" type="file"><input id="send" type="submit" onclick="document.getElementById('input_text').value=document.getElementById('file_input_text').value.substr(-8);" value="Send"></p>
-	<p>This is a radio:
-		<INPUT type= "radio" name="rate" value="day"> day rate
-			<INPUT type= "radio" name="rate" value="night"> night rate
-				<INPUT type= "radio" name="rate" value="week-end"> WE rate
-				</p>
-				<p>This is a checkbox:
-					<input type="checkbox" id="agree" name="agree" value="yes"> I agree<br>
-					<input type="checkbox" name="agree" value="no" checked> I do not agree
-					<p>This is a select:
-						<select id="input_select">
-							<option value="none"></option>
-							<option value="Rennes">Rennes</option>
-							<option value="Paris">Paris</option>
-						</select>
-					</p>
-					<p>This is a button:<input id="submit" type="submit"></p>
-					<p>Open popup   N°1: <input id="openPopup1" type="submit" onclick="open('popup1.html', 'Popup1', 'scrollbars=1,resizable=1,height=600,width=500'); return false;">   N°2: <input id="openPopup2" type="submit" onclick="open('popup2.html', 'Popup2', 'scrollbars=1,resizable=1,height=600,width=500'); return false;">   N°3: <input id="openPopup3" type="submit" onclick="open('popup3.html', 'Popup3', 'scrollbars=1,resizable=1,height=600,width=500'); return false;"></p>
-					<p><input id="changeValue" type="submit" onclick="setTimeout(function(){ document.getElementById('changeValue').value='My value has changed'; }, 2000);" value="My value will change">
-						<p style="height: 150px;">This is a onclick by js test: <a onclick="alert('OK');alertDate();" style="display:block;color: #FE7F88;background-image: url('Smile.png'); width: 150px; height: 150px;" name="smilejs" title="smilejs"></a></p>
-						<p style="height: 150px;">This is a onclick test: <a onclick="alert('OK');alertDate();" style="display:block;color: #FE7F88;background-image: url('Smile.png'); width: 150px; height: 150px;" name="smile" title="smile"> </a></p>
-						<input id="input_current_date" type="text">
-						<script>
-							var count = 0;
-							document.getElementById("input_current_date").value = count;
-							function alertDate() {
-								count = count + 1;
-								document.getElementById("input_current_date").value = count;
-							}
-						</script>
-					</body>
-					</html>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" href="#">Action</a></li>
+						<li><a class="dropdown-item" href="#">Another action</a></li>
+						<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdownSubMenu">Submenu</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Submenu action</a></li>
+								<li><a class="dropdown-item" href="#">Another submenu action</a></li>
+
+
+								<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdownSubSubMenu1">Subsubmenu</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+										<li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+									</ul>
+								</li>
+								<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdownSubSubMenu2">Second subsubmenu</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+										<li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+									</ul>
+								</li>
+
+
+
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="row">
+		<div class="col-6">
+			<h1 id="big_title">This is a demo for NORAUI (Non-Regression Automation for User Interfaces).</h1>
+			<h1 id="visibility_hidden_title" style="visibility: hidden">visibility hidden for title.</h1>
+			<p>This is a input field: <input id="input_text" type="text" class="btn btn-outline-info"></p>
+			<p>This is a checkbox:
+				<input type="checkbox" id="agree" name="agree" value="yes"> I agree<br>
+				<input type="checkbox" name="agree" value="no" checked> I do not agree
+			</p>
+			<p>Open popup N°1: <input id="openPopup1" type="submit" onclick="open('popup1.html', 'Popup1', 'scrollbars=1,resizable=1,height=600,width=500'); return false;" class="btn btn-outline-info"> N°2: <input id="openPopup2" type="submit" onclick="open('popup2.html', 'Popup2', 'scrollbars=1,resizable=1,height=600,width=500'); return false;"
+				  class="btn btn-outline-info"> N°3: <input id="openPopup3" type="submit" onclick="open('popup3.html', 'Popup3', 'scrollbars=1,resizable=1,height=600,width=500'); return false;" class="btn btn-outline-info"></p>
+			<p><input id="changeValue" type="submit" onclick="setTimeout(function(){ document.getElementById('changeValue').value='My value has changed'; }, 2000);" value="My value will change" class="btn btn-outline-info"></p>
+		</div>
+		<div class="col-3">
+			<p>This is a file input field: <input id="file_input_text" type="file"><input id="send" type="submit" onclick="document.getElementById('input_text').value=document.getElementById('file_input_text').value.substr(-8);" value="Send" class="btn btn-outline-info"></p>
+			<p>This is a select:
+				<select id="input_select">
+					<option value="none"></option>
+					<option value="Rennes">Rennes</option>
+					<option value="Paris">Paris</option>
+				</select>
+			</p>
+			<p style="height: 150px;">This is a onclick by js test: <a onclick="alert('OK');alertDate();" style="display:block;color: #FE7F88;background-image: url('Smile.png'); width: 150px; height: 150px;" name="smilejs" title="smilejs"></a></p>
+			<p style="height: 150px;">This is a onclick test: <a onclick="alert('OK');alertDate();" style="display:block;color: #FE7F88;background-image: url('Smile.png'); width: 150px; height: 150px;" name="smile" title="smile"> </a></p>
+		</div>
+		<div class="col-3">
+			<h1 id="display_none_title" style="display: none">display none for title.</h1>
+			<p>This is a radio:
+				<INPUT type="radio" name="rate" value="day"> day rate
+				<INPUT type="radio" name="rate" value="night"> night rate
+				<INPUT type="radio" name="rate" value="week-end"> WE rate
+			</p>
+			<p>This is a button: <input id="submit" type="submit" class="btn btn-outline-info"></p>
+			<input id="input_current_date" type="text" class="btn btn-outline-info">
+
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script>
+		var count = 0;
+		document.getElementById("input_current_date").value = count;
+
+		function alertDate() {
+			count = count + 1;
+			document.getElementById("input_current_date").value = count;
+		}
+		$('.dropdown-menu a.dropdown-toggle').on('mouseover', function(e) {
+			if (!$(this).next().hasClass('show')) {
+				$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+			}
+			var $subMenu = $(this).next(".dropdown-menu");
+			$subMenu.toggleClass('show');
+
+
+			$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+				$('.dropdown-submenu .show').removeClass("show");
+			});
+
+
+			return false;
+		});
+	</script>
+
+</body>
+
+</html>
