@@ -351,13 +351,9 @@ xpath=(//h3//a)[1]</code></pre>
       This can be made directly with Gherkin language as we have done before, or within your own steps. Steps definition are simple classes under <i>application.steps</i> package. These classes should extend <b>Step</b> class. From them, you can use Pages and code specific actions and expectations:
       </p>
       <pre class="language-java"><code>public class MyOwnSteps extends Step {
-
+    
+    @Inject
     private SearchPage searchPage;
-
-    public MyOwnSteps() throws TechnicalException {
-        super();
-        this.searchPage = (SearchPage) Page.getInstance(SearchPage.class);
-    }
 
    @Then("The GOOGLE search page is displayed")
    public void checkGoogleSearchPage() throws FailureException {
