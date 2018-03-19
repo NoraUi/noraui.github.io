@@ -294,8 +294,10 @@ Feature: My new feature
 Feature: My new feature
   Scenario Outline: My new feature scenario
     Given 'GOOGLE_HOME' is opened.
-    When I update text 'google.SearchPage-searchField' with '&lt;search&gt'.
-    And I click on 'google.SearchPage-searchButton'.
+    # When I update text 'google.SearchPage-searchField' with '&lt;search&gt'.
+    # And I click on 'google.SearchPage-searchButton'.
+    # The 2 above lines have been replaced due to google search page behavior change
+    When I update text 'google.SearchPage-searchField' and type ENTER with '&lt;search&gt'.
     Then I check that 'google.SearchPage-googleLink' is present.
 
     And I go back to 'GOOGLE_HOME'
