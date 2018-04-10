@@ -357,12 +357,12 @@ xpath=(//h3//a)[1]</code></pre>
     @Inject
     private SearchPage searchPage;
 
-   @Then("The GOOGLE search page is displayed")
-   public void checkGoogleSearchPage() throws FailureException {
-       if (!searchPage.checkPage()) {
-           new Result.Failure<>("google", "ERROR_MESSAGE", true, searchPage.getCallBack());
-       }
-   }</code></pre>
+    @Then("The GOOGLE search page is displayed")
+    public void checkGoogleSearchPage() throws FailureException {
+        if (!searchPage.checkPage()) {
+            new Result.Failure<>("google", "ERROR_MESSAGE", true, searchPage.getCallBack());
+        }
+    }</code></pre>
    In this sample, we retrieve the <b>SearchPage</b> from <b>Page factory</b> and use it after in an <b>Gherkin exposed</b> (@Then...) public method to do a simple validation. If the validation fails, a new <b>Result.Failure</b> object is created to manage error reporting, screenshooting and callback invocation (we will see error management and reporting in incoming parts).
    <p>You can go further by combining NoraUi generic methods calls inside one Step method.<br/>
       Example:
