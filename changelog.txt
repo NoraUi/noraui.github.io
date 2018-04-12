@@ -1,5 +1,16 @@
-Change log next version (3.1.3)
+Change log next version (3.1.4)
 -----------------------
+* Sonar
+* Fix CLI
+* Fix passover issue
+* remove alert in console
+* remove phantom and htmlunit
+* upgrade chromewebdriver to 2.37 (Supports Chrome v64-66)
+
+Change log 3.1.3 (2018-03-19)
+-----------------------
+* Sonar
+* Fix expect step issue
 
 Change log 3.1.2 (2018-03-14)
 -----------------------
