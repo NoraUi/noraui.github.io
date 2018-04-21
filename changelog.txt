@@ -7,7 +7,10 @@ Change log next version (3.2.0)
 * Remove alert in console
 * Remove phantom and htmlunit
 * Upgrade chromewebdriver to 2.37 (Supports Chrome v64-66)
-* Encript/Decript feature for GDPR
+* Add Encript/Decript feature for GDPR
+* Replace springframework RestTemplate by OkHttp
+* Add API REST feature
+* Add cucumber-metrics in NoraUi
 
 Change log 3.1.3 (2018-03-19)
 -----------------------
