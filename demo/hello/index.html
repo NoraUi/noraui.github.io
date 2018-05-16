@@ -61,9 +61,6 @@
 										<li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
 									</ul>
 								</li>
-
-
-
 							</ul>
 						</li>
 					</ul>
@@ -89,6 +86,7 @@
 		</div>
 		<div class="col-3">
 			<p>This is a file input field: <input id="file_input_text" type="file"><input id="send" type="submit" onclick="document.getElementById('input_text').value=document.getElementById('file_input_text').value.substr(-8);" value="Send" class="btn btn-outline-info"></p>
+			<p>This is a download CSV file button sample: <input id="exportCSV" type="submit" onclick="exportCSV({ filename: 'stock-data.csv' });" value="Export CSV" class="btn btn-outline-info"></p>
 			<p>This is a select:
 				<select id="input_select">
 					<option value="none"></option>
@@ -114,10 +112,9 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script>
+	<script type="text/javascript">  
 		var count = 0;
 		document.getElementById("input_current_date").value = count;
-
 		function alertDate() {
 			count = count + 1;
 			document.getElementById("input_current_date").value = count;
@@ -128,15 +125,70 @@
 			}
 			var $subMenu = $(this).next(".dropdown-menu");
 			$subMenu.toggleClass('show');
-
-
 			$(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
 				$('.dropdown-submenu .show').removeClass("show");
 			});
-
-
 			return false;
 		});
+		
+		var stockData = [
+			{
+				Symbol: "AAPL",
+				Company: "Apple Inc.",
+				Price: "132.54"
+			},
+			{
+				Symbol: "INTC",
+				Company: "Intel Corporation",
+				Price: "33.45"
+			},
+			{
+				Symbol: "GOOG",
+				Company: "Google Inc",
+				Price: "554.52"
+			},
+		];
+
+		function convertArrayOfObjectsToCSV(args) {
+			var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+			data = args.data || null;
+			if (data == null || !data.length) {
+				return null;
+			}
+			columnDelimiter = args.columnDelimiter || ';';
+			lineDelimiter = args.lineDelimiter || '\n';
+			keys = Object.keys(data[0]);
+			result = '';
+			result += keys.join(columnDelimiter);
+			result += lineDelimiter;
+			data.forEach(function(item) {
+				ctr = 0;
+				keys.forEach(function(key) {
+					if (ctr > 0) result += columnDelimiter;
+					result += item[key];
+					ctr++;
+				});
+				result += lineDelimiter;
+			});
+			return result;
+		}
+
+		function exportCSV(args) {
+			var data, filename, link;
+			var csv = convertArrayOfObjectsToCSV({
+				data: stockData
+			});
+			if (csv == null) return;
+			filename = args.filename || 'export.csv';
+			if (!csv.match(/^data:text\/csv/i)) {
+				csv = 'data:text/csv;charset=utf-8,' + csv;
+			}
+			data = encodeURI(csv);
+			link = document.createElement('a');
+			link.setAttribute('href', data);
+			link.setAttribute('download', filename);
+			link.click();
+		} 
 	</script>
 
 </body>
