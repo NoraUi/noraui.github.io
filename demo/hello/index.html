@@ -82,7 +82,10 @@
 			</p>
 			<p>Open popup N°1: <input id="openPopup1" type="submit" onclick="open('popup1.html', 'Popup1', 'scrollbars=1,resizable=1,height=600,width=500'); return false;" class="btn btn-outline-info"> N°2: <input id="openPopup2" type="submit" onclick="open('popup2.html', 'Popup2', 'scrollbars=1,resizable=1,height=600,width=500'); return false;"
 				  class="btn btn-outline-info"> N°3: <input id="openPopup3" type="submit" onclick="open('popup3.html', 'Popup3', 'scrollbars=1,resizable=1,height=600,width=500'); return false;" class="btn btn-outline-info"></p>
-			<p><input id="changeValue" type="submit" onclick="setTimeout(function(){ document.getElementById('changeValue').value='My value has changed'; }, 2000);" value="My value will change" class="btn btn-outline-info"></p>
+			<p><input id="changeValue" type="submit" onclick="setTimeout(function(){ document.getElementById('changeValue').value='My value has changed'; }, 2000);" value="My value will change" class="btn btn-outline-info">
+			<input id="disappear" type="submit" onclick="setTimeout(function(){ document.getElementById('disappear').style='visibility:hidden'; }, 2000);" value="I will disappear" class="btn btn-outline-info">
+			<input id="stale" type="submit" onclick="setTimeout(function(){ var stale = document.getElementById('stale').outerHTML; document.getElementById('stale').parentElement.innerHTML=stale; }, 2000);" value="I will become stale" class="btn btn-outline-info"></p>
+
 		</div>
 		<div class="col-3">
 			<p>This is a file input field: <input id="file_input_text" type="file"><input id="send" type="submit" onclick="document.getElementById('input_text').value=document.getElementById('file_input_text').value.substr(-8);" value="Send" class="btn btn-outline-info"></p>
