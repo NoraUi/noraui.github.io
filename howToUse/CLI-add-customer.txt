@@ -35,3 +35,17 @@ field: [firstNameCustomer]
 field: [id]
 
 NoraUi Command Line Interface finished with success.
+
+What do you want ?
+    0 => exit NoraUi CLI
+    1 => add new application
+    2 => add new scenario
+    3 => add new model
+    4 => remove application
+    5 => remove scenario
+    6 => remove model
+    7 => encrypt data
+    8 => decrypt data
+0
+
+Exit NoraUi Command Line Interface with success.
