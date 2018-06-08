@@ -1,0 +1,48 @@
+  ███╗   ██╗ ██████╗ ██████╗  █████╗ ██╗   ██╗██╗      ██████╗██╗     ██╗ 
+  ████╗  ██║██╔═══██╗██╔══██╗██╔══██╗██║   ██║██║     ██╔════╝██║     ██║ 
+  ██╔██╗ ██║██║   ██║██████╔╝███████║██║   ██║██║     ██║     ██║     ██║ 
+  ██║╚██╗██║██║   ██║██╔══██╗██╔══██║██║   ██║██║     ██║     ██║     ██║ 
+  ██║ ╚████║╚██████╔╝██║  ██║██║  ██║╚██████╔╝██║     ╚██████╗███████╗██║ 
+  ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝      ╚═════╝╚══════╝╚═╝ 
+
+  NoraUi Command Line Interface =>
+
+What do you want ?
+    0 => exit NoraUi CLI
+    1 => add new application
+    2 => add new scenario
+    3 => add new model
+    4 => remove application
+    5 => remove scenario
+    6 => remove model
+    7 => encrypt data
+    8 => decrypt data
+2
+Enter index application number:
+    1) google
+    2) jhipsterSampleApp
+    3) logogame
+2
+Enter scenario name:
+createCustomerWithModel
+Enter description:
+Scenario that a simple CRUD (create part) for JHIPSTERSAMPLEAPP customer
+Add a new scenario named [createCustomerWithModel] on [jhipsterSampleApp] application with this description: [Scenario that a simple CRUD (create part) for JHIPSTERSAMPLEAPP customer]
+dataProvider.in.type is [EXCEL]
+dataProvider.out.type is [EXCEL]
+
+NoraUi Command Line Interface finished with success.
+
+What do you want ?
+    0 => exit NoraUi CLI
+    1 => add new application
+    2 => add new scenario
+    3 => add new model
+    4 => remove application
+    5 => remove scenario
+    6 => remove model
+    7 => encrypt data
+    8 => decrypt data
+0
+
+Exit NoraUi Command Line Interface with success.
