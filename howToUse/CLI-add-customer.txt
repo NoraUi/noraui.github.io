@@ -1,0 +1,37 @@
+  ███╗   ██╗ ██████╗ ██████╗  █████╗ ██╗   ██╗██╗      ██████╗██╗     ██╗ 
+  ████╗  ██║██╔═══██╗██╔══██╗██╔══██╗██║   ██║██║     ██╔════╝██║     ██║ 
+  ██╔██╗ ██║██║   ██║██████╔╝███████║██║   ██║██║     ██║     ██║     ██║ 
+  ██║╚██╗██║██║   ██║██╔══██╗██╔══██║██║   ██║██║     ██║     ██║     ██║ 
+  ██║ ╚████║╚██████╔╝██║  ██║██║  ██║╚██████╔╝██║     ╚██████╗███████╗██║ 
+  ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝      ╚═════╝╚══════╝╚═╝ 
+
+  NoraUi Command Line Interface =>
+
+What do you want ?
+    0 => exit NoraUi CLI
+    1 => add new application
+    2 => add new scenario
+    3 => add new model
+    4 => remove application
+    5 => remove scenario
+    6 => remove model
+    7 => encrypt data
+    8 => decrypt data
+3
+Enter index application number:
+    1) google
+    2) jhipsterSampleApp
+    3) logogame
+2
+Enter model name:
+customer
+Enter field list:
+lastNameCustomer firstNameCustomer id
+Enter result list (optional):
+
+Add a new model named [customer] in application named [jhipsterSampleApp]
+field: [lastNameCustomer]
+field: [firstNameCustomer]
+field: [id]
+
+NoraUi Command Line Interface finished with success.
