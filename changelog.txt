@@ -1,4 +1,19 @@
-Change log next version (3.2.0)
+Change log next version (4.0.0)
+-----------------------
+* Upgrade cucumber version (2.x to 4.x) - Use Cucumber Expressions
+
+Change log next version (3.3.0)
+-----------------------
+* Fix issue 80
+* Fix CLI issue on addXlsxFile
+* Fix CLI issue on counter
+* upgrade to 2.45 (Supports Chrome v70-72)
+* Fix RGPD issue
+* Add CLI featue
+* Fix javadoc
+* PR 77,81
+
+Change log (3.2.0) (2018-05-24)
 -----------------------
 * Sonar
 * Fix javadoc
