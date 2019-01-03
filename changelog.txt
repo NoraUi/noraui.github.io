@@ -1,6 +1,8 @@
 Change log next version (4.0.0)
 -----------------------
 * Upgrade cucumber version (2.x to 4.x) - Use Cucumber Expressions
+* Java 8 compiler
+* License check by Fossa
 
 Change log next version (3.3.0)
 -----------------------
