@@ -12,7 +12,7 @@
 
 [Logo Game V3](https://noraui.github.io/demo/logogame/v3/).
 
-[bakery](https://noraui.github.io/bakery/).
+[Bakery](https://noraui.github.io/bakery/).
 
 # License
 
