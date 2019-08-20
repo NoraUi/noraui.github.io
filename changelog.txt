@@ -1,15 +1,15 @@
-Change log next version (4.0.0)
+Change log next version (4.0.0) (2019-08-xx)
 -----------------------
 * Upgrade cucumber version (2.x to 4.x) - Use Cucumber Expressions
 * Java 8 compiler
 * License check by Fossa
-
-Change log next version (3.3.0)
------------------------
+* Add new CLI featue (Status)
+* New CI/CD sample with [https://github.com/NoraUi/bakery.io](https://noraui.github.io/bakery.io/)
+* Fix CLI issue on .noraui CLI file (model)
 * Fix issue 80
 * Fix CLI issue on addXlsxFile
 * Fix CLI issue on counter
-* upgrade to 2.45 (Supports Chrome v70-72)
+* upgrade chromedriver to 2.75 (Supports Chrome v75)
 * Fix RGPD issue
 * Add CLI featue
 * Fix javadoc
