@@ -14,6 +14,9 @@
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		
+		<!-- Custom NoraUi style sheet -->
+		<link rel="stylesheet" href="css/noraui.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -30,7 +33,15 @@
 				<section>
 					<h1>NORAUI</h1>
 					<h3>NOn Regression Automation for User Interfaces</h3>
-					<p><small><i class="fab fa-linkedin"></i> <i class="fab fa-github"></i> <a href="https://github.com/sgrillon14">Stéphane GRILLON</a><br/><i class="fab fa-linkedin"></i> <i class="fab fa-github"></i> <a href="https://github.com/ArKniiD">Nicolas HALLOUIN</a></small></p>
+					<div class="authors">
+						<p class="bottom-center">
+							<small><i class="fab fa-linkedin"></i> <i class="fab fa-github"></i> <a href="https://github.com/sgrillon14">Stéphane GRILLON</a><br/><i class="fab fa-linkedin"></i> <i class="fab fa-github"></i> <a href="https://github.com/ArKniiD">Nicolas HALLOUIN</a></small>
+						</p>
+						<p class="bottom-right">
+							<a href="https://github.com/NoraUi" target="_blank" ><img style="margin: 0; border: none; vertical-align:middle;" alt="@NoraUi" src="https://avatars2.githubusercontent.com/u/26145171?s=150&amp;v=4"></a>
+						</p>			
+					</div>
+					
 				</section>
 				<!-- Contribute on GitHub slides -->
 				<section>
@@ -200,7 +211,8 @@ public class MyOwnSteps extends Step {
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				],
-				transition: 'convex'
+				transition: 'convex',
+				center: false
 			});
 		</script>
 	</body>

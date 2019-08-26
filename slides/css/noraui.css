@@ -1,0 +1,17 @@
+.authors {
+    height: 5em;
+}
+.authors p {
+    width: 100%;
+}
+.bottom-right {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    text-align: right;
+}
+.bottom-center {
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+}
