@@ -1,10 +1,15 @@
-Change log next version (4.0.0) (2019-08-xx)
+Change log next version (4.1.0) (2019-1x-xx)
+-----------------------
+* Upgrade cucumber version (4.x to 5.x)
+
+Change log next version (4.0.0) (2019-09-xx)
 -----------------------
 * Upgrade cucumber version (2.x to 4.x) - Use Cucumber Expressions
 * Java 8 compiler
 * License check by Fossa
 * Add new CLI featue (Status)
 * New CI/CD sample with [https://github.com/NoraUi/bakery.io](https://noraui.github.io/bakery.io/)
+* Fix CLI issue on .noraui CLI file (pretty format)
 * Fix CLI issue on .noraui CLI file (model)
 * Fix issue 80
 * Fix CLI issue on addXlsxFile
@@ -14,6 +19,9 @@ Change log next version (4.0.0) (2019-08-xx)
 * Add CLI featue
 * Fix javadoc
 * PR 77,81
+* Remove all Deprecated features
+* Sonar
+* Fix javadoc
 
 Change log (3.2.0) (2018-05-24)
 -----------------------
