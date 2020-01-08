@@ -1,8 +1,11 @@
-Change log next version (4.1.0) (2019-1x-xx)
------------------------
 * Upgrade cucumber version (4.x to 5.x)
 
-Change log next version (4.0.0) (2019-09-xx)
+Change log next version (4.1.0) (2019-1x-xx)
+-----------------------
+* Refactor NoraUiExpectedConditions
+* Expose to Gherkin all Selenium ExpectedConditions
+
+Change log (4.0.0) (2019-12-02)
 -----------------------
 * Upgrade cucumber version (2.x to 4.x) - Use Cucumber Expressions
 * Java 8 compiler
