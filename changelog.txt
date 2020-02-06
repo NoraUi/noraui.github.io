@@ -1,9 +1,38 @@
-* Upgrade cucumber version (4.x to 5.x)
+Change long next version (5.0.0) (2020-0x-xx)
+-----------------------
+* Upgrade cucumber version (4.x to 5.x) in progerss
 
-Change log next version (4.1.0) (2019-1x-xx)
+
+Change log next version (4.2.0) (2020-0x-xx)
+-----------------------
+* Use NoraUi PageElement in Cucumber in progerss
+*
+
+Change log next version (4.1.1) (2020-02-05)
+-----------------------
+* Fix javadoc
+* Sonar
+* Fix TimeService
+* Fix TimeSteps (Formatter)
+* fix CI (future date in 2050)
+
+Change log next version (4.1.0) (2020-02-02)
 -----------------------
 * Refactor NoraUiExpectedConditions
 * Expose to Gherkin all Selenium ExpectedConditions
+* Add TimeService
+* Add TimeSteps
+* Fix log level
+* Add a Map of properties (use in your robot)
+* update Maven surefire plugin version to 2.22.2
+* update jacoco Maven plugin version to 0.8.5
+* update sonar Maven plugin to 3.7.0.1746
+* Merge PR 119: update all unit tests on V4+
+* Add new NoraUi ExpectedCondition: presenceOfMinimumElementsLocatedBy
+* Add new NoraUi ExpectedCondition: presenceOfMaximumElementsLocatedBy
+* You can use child of NoraUiInjector in your robot
+* Upgrade to 79.0.3945.36 (Supports Chrome v79)
+* Sonar
 
 Change log (4.0.0) (2019-12-02)
 -----------------------
