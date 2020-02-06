@@ -14,10 +14,10 @@ Change log next version (4.1.1) (2020-02-05)
 * Sonar
 * Fix TimeService
 * Fix TimeSteps (Formatter)
-* fix CI (future date in 2050)
 
 Change log next version (4.1.0) (2020-02-02)
 -----------------------
+* fix CI (future date in 2050)
 * Refactor NoraUiExpectedConditions
 * Expose to Gherkin all Selenium ExpectedConditions
 * Add TimeService
