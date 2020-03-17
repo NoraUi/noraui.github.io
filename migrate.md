@@ -1,8 +1,8 @@
 # How to migrate from [4.0.x] to [4.2.x]
 
 * You need use new PageElement:
-    * Change 'google.GooglePage-searchField' by $google.GooglePage-searchField
-    * Change {string} String pageElement by {page-element} PageElement pageElement
+    * Change 'google.GooglePage-searchField' by $google.GooglePage-searchField
+    * Change {string} String pageElement by {page-element} PageElement pageElement
 
 # How to migrate from [3.x.x] to [4.x.x]
 
