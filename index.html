@@ -279,13 +279,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <pre class="language-gherkin"><code>@MyNewFeature
 Feature: My new feature
   Scenario Outline: My new feature scenario
-    When I click on 'mypackage.MyPage-myElement'.
+    When I click on $mypackage.MyPage-myElement
     Examples:
     #DATA
     |id|
     |1|
     #END</code></pre>
-      You can notice that we used "I click on 'mypackage.MyPage-myElement'." step which comes directly from NoraUI framework.<br/>
+      You can notice that we used "I click on $mypackage.MyPage-myElement" step which comes directly from NoraUI framework.<br/>
       When you write a feature, you have 2 possibilities when searching for steps:
       <ul>
         <li>You can use an existing one (from your project or from NoraUi)</li>
@@ -308,7 +308,7 @@ Feature: My new feature
       You can find all methods <a href="https://noraui.github.io/NoraUi/com/github/noraui/application/steps/CommonSteps.html" target="_blank">here</a><br/><br/>
       Let's focus now on the structure of the added steps within our new scenario.<br/>
       <div class="w3-margin-left">
-      <b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b>
+      <b>When I click on $<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'</b>
       </div>
       The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">'pages' subpackages</span> of your project.<br/>
 
@@ -397,13 +397,13 @@ xpath=(//h3//a)[1]</code></pre>
           </ul>
     </p>
       Create a new method in your code that will simply call existing generic methods of the framework as below:
-      <pre class="language-java"><code>@Given("custom application action with click on '(.*)-(.*)', check value on '(.*)-(.*)' and update value on '(.*)-(.*)'")
-public void customApplicationAction(String pageA, String toClickA, String pageB, String elementNameB, String pageC, String elementNameC) {
-    clickOn(Page.getInstance(pageA).getPageElementByKey('-' + toClickA));
-    if (!checkInputText(Page.getInstance(pageB).getPageElementByKey('-' + elementNameB), "RED")) {
-        updateText(Page.getInstance(pageC).getPageElementByKey('-' + elementNameC), "GREEN");
+      <pre class="language-java"><code>@Given("custom application action with click on {page-element}, check value on {page-element} and update value on {page-element}")
+public void customApplicationAction(PageElement elementNameA, PageElement elementNameB, PageElement elementNameC) {
+    clickOn(elementNameA);
+    if (!checkInputText(elementNameB, "RED")) {
+        updateText(elementNameC, "GREEN");
     } else {
-        updateText(Page.getInstance(pageC).getPageElementByKey('-' + elementNameC), "ERROR");
+        updateText(elementNameC, "ERROR");
     }
 }</code></pre>
     <b>"clickOn"</b>, <b>"checkInputText"</b> and <b>"updateText"</b> already exist. You can find all methods <a href="https://noraui.github.io/NoraUi/noraui/application/steps/Step.html" target="_blank">here</a>
@@ -412,7 +412,7 @@ public void customApplicationAction(String pageA, String toClickA, String pageB,
 Feature: My new feature
   Scenario Outline: My new feature scenario
     ...
-    custom application action with click on 'package.Page-elementA', check value on 'package.Page-elementB' and update value on 'package.Page-elementC'
+    custom application action with click on $package.Page-elementA, check value on $package.Page-elementB and update value on $package.Page-elementC
     ...
     Examples:
     #DATA
