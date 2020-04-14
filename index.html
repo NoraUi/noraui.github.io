@@ -317,11 +317,11 @@ Feature: My new feature
 Feature: My new feature
   Scenario Outline: My new feature scenario
     Given 'GOOGLE_HOME' is opened.
-    # When I update text 'google.SearchPage-searchField' with '&lt;search&gt'.
-    # And I click on 'google.SearchPage-searchButton'.
+    # When I update text $google.SearchPage-searchField with '&lt;search&gt'
+    # And I click on $google.SearchPage-searchButton
     # The 2 above lines have been replaced due to google search page behavior change
-    When I update text 'google.SearchPage-searchField' and type ENTER with '&lt;search&gt'.
-    Then I check that 'google.SearchPage-googleLink' is present.
+    When I update text $google.SearchPage-searchField and type ENTER with '&lt;search&gt'
+    Then I check that $google.SearchPage-googleLink is present
 
     And I go back to 'GOOGLE_HOME'
   Examples:
@@ -428,7 +428,7 @@ Feature: My new feature
           </ul>
       </p>
       The principle stays the same:
-      <pre class="language-java"><code>@Then("custom application action with '(.*)'")
+      <pre class="language-java"><code>@Then("custom application action with {string}")
 public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
     Foos foos = new Foos();
     foos.deserialize(fooJsonString);
@@ -592,10 +592,10 @@ dataProvider.out.type=CONSOLE
     As the input data are placed in <i>src/test/resources/data/in</i>, result files are placed in <i>src/test/resources/data/out</i> in the case you are using files as output (EXCEL or CSV). <br/>
     For this tutorial, we chose the CONSOLE data output provider. So after the run, you should see the following content in the console:
     </p>
-    <pre class="language-gherkin"><code>[2017-09-24 13:08:43]: > When I update text 'google.SearchPage-searchField' with 'test'
-[2017-09-24 13:08:43]: > When I click on 'google.SearchPage-searchButton'
-[2017-09-24 13:08:44]: > And I check that 'google.SearchPage-googleLink' is present
-[2017-09-24 13:08:44]: > And I go back to 'GOOGLE_HOME'
+    <pre class="language-gherkin"><code>[2017-09-24 13:08:43]: > When I update text $google.SearchPage-searchField with 'test'
+[2017-09-24 13:08:43]: #1 - When I click on $google.SearchPage-searchButton
+[2017-09-24 13:08:44]: #2 - And I check that $google.SearchPage-googleLink is present
+[2017-09-24 13:08:44]: #3 - And I go back to 'GOOGLE_HOME'
 [2017-09-24 13:08:47]: ****************************************************************************************
 [2017-09-24 13:08:47]: *                                                                                      *
 [2017-09-24 13:08:47]: *  Scenario: [@MyNewFeature] step 1 of 1 with 0 error(s) and 0 alert(s). 0s remaining  *
