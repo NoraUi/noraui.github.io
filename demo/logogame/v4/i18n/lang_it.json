@@ -1,0 +1,20 @@
+{
+	"LANG":"Scegliere la lingua",
+	"LANGUAGE" : {
+	    "DE":"Tedesco",
+		"EN":"Inglese",
+		"ES":"Spagnolo",
+		"FR":"Francese",
+	    "IT":"Italiano"
+	},
+	"USERNAME":"Nome utente",
+	"PASSWORD":"Parola d'ordine",
+	"LOGIN":"Accesso",
+	"LOGOUT":"Disconnettersi",
+	"USERNAME_OR_PASSWORD_IS_INCORRECT":"Nome utente o password non sono corretti",
+	"RUN":"Correre",
+	"HI":"Ciao",
+	"YOU_ARE_LOGGED_IN":"Si è registrato in!!",
+	"TITLE": "Loghi di gioco",
+	"VERSION": "Version 3.0.0 - Copyright © 2017 [ Logo Game ]. Tutti i diritti riservati."
+}
