@@ -12,7 +12,7 @@
 
 [Logo Game V3](https://noraui.github.io/demo/logogame/v3/).
 
-[Logo Game V4](https://noraui.github.io/demo/logogame/v4/).
+[Logo Game (jhipster sample)](https://noraui.github.io/demo/jhipstersample/).
 
 [Bakery](https://noraui.github.io/bakery/).
 
