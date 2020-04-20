@@ -14,7 +14,7 @@
 	"USERNAME_OR_PASSWORD_IS_INCORRECT":"Pseudo ou mot de passe est inexact",
 	"RUN":"Démarrer",
 	"HI":"Salut",
-	"YOU_ARE_LOGGED_IN": "Vous êtes connecté !!",
+	"YOU_ARE_LOGGED_IN": "Vous êtes connecté avec ",
 	"TITLE": "Jeu des logos",
 	"VERSION": "Version 3.0.0 - Copyright © 2017 [ Logo Game ]. Tous droits réservés."
 }

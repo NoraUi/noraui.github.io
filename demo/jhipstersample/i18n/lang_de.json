@@ -14,7 +14,7 @@
 	"USERNAME_OR_PASSWORD_IS_INCORRECT":"Benutzername oder Passwort ist falsch",
 	"RUN":"Lauf",
 	"HI":"Hallo",
-	"YOU_ARE_LOGGED_IN":"Sie sind angemeldet!!",
+	"YOU_ARE_LOGGED_IN":"Sie sind verbunden mit ",
 	"TITLE": "Spiel Logo",
 	"VERSION": "Version 3.0.0 - Copyright © 2017 [ Logo Game ]. Alle Rechte vorbehalten."
 }
