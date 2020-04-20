@@ -1,7 +1,7 @@
 {
     "userName":"user2",
     "password":"password2",
-    "firstName":"John",
+    "firstName":"user2",
     "lastName":"Doe",
     "role":"user"
 }
