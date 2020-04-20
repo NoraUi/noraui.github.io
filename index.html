@@ -203,14 +203,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         &lt;archetype>
           &lt;groupId>com.github.noraui&lt;/groupId>
           &lt;artifactId>noraui-archetype&lt;/artifactId>
-          &lt;version>3.2.0&lt;/version>
+          &lt;version>4.0.0.0&lt;/version>
           &lt;description>Maven archetype for use a NORA-UI project&lt;/description>
         &lt;/archetype>
     &lt;/archetypes>
 &lt;/archetype-catalog></code></pre>
       </p>
       <p>
-        <b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 3.2.0<br /> Next
+        <b>On Eclipse:</b><br /> New > Project... > Maven > Maven Project > Next > Next<br /> Select Group Id: com.github.noraui, Artifact Id: noraui-archetype and Version: 4.0.0.0<br /> Next
         <div class="w3-row-padding w3-center w3-margin-top">
           <div class="w3-half">
             <div class="w3-card-4">
@@ -237,13 +237,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <div id="installationInstructionsCmd" class="w3-container w3-margin-top">
     <h2><i class="fa fa-book"></i> Installation Instructions from Cmd</h2>
     <p>
-      <pre class="language-markup"><code>mvn archetype:generate -B -DarchetypeGroupId=com.github.noraui -DarchetypeArtifactId=noraui-archetype -DarchetypeVersion=3.2.0 -DgroupId=com.your.company -DartifactId=robot -Dversion=0.0.1-SNAPSHOT -DinteractiveMode=false</code></pre>
+      <pre class="language-markup"><code>mvn archetype:generate -B -DarchetypeGroupId=com.github.noraui -DarchetypeArtifactId=noraui-archetype -DarchetypeVersion=4.0.0.0 -DgroupId=com.your.company -DartifactId=robot -Dversion=0.0.1-SNAPSHOT -DinteractiveMode=false</code></pre>
     </p>
     <p>
       or
     </p>
     <p>
-      <pre class="language-markup"><code>mvn archetype:generate -B -DarchetypeGroupId=com.github.noraui -DarchetypeArtifactId=noraui-archetype -DarchetypeVersion=3.2.0 -DgroupId=com.your.company -DartifactId=ux -Dversion=0.0.1-SNAPSHOT -DrobotName=UxRobot -DtargetApplicationUrl=https://noraui.github.io/demo/logogame/v3/#/login -DtargetApplicationTitle="Logo Game" -DtargetApplicationId=logogame -DtargetApplicationName=Logogame</code></pre>
+      <pre class="language-markup"><code>mvn archetype:generate -B -DarchetypeGroupId=com.github.noraui -DarchetypeArtifactId=noraui-archetype -DarchetypeVersion=4.0.0.0 -DgroupId=com.your.company -DartifactId=ux -Dversion=0.0.1-SNAPSHOT -DrobotName=UxRobot -DtargetApplicationUrl=https://noraui.github.io/demo/logogame/v3/#/login -DtargetApplicationTitle="Logo Game" -DtargetApplicationId=logogame -DtargetApplicationName=Logogame</code></pre>
     </p>
   </div>
   <hr id="quickStartGuide" style="border-color: teal; margin: 25px;"/>
@@ -279,20 +279,20 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <pre class="language-gherkin"><code>@MyNewFeature
 Feature: My new feature
   Scenario Outline: My new feature scenario
-    When I click on 'mypackage.MyPage-myElement'.
+    When I click on $mypackage.MyPage-myElement
     Examples:
     #DATA
     |id|
     |1|
     #END</code></pre>
-      You can notice that we used "I click on 'mypackage.MyPage-myElement'." step which comes directly from NoraUI framework.<br/>
+      You can notice that we used "I click on $mypackage.MyPage-myElement" step which comes directly from NoraUI framework.<br/>
       When you write a feature, you have 2 possibilities when searching for steps:
       <ul>
         <li>You can use an existing one (from your project or from NoraUi)</li>
         <li>You can create a new one and then implement it</li>
       </ul>
       <div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
-        <p>Here is a piece of advice for Eclipse: there is a very useful Cucumber JVM Eclipse Plugin that you can install via "Install New Software" menu via this address: https://cucumber.io/cucumber-eclipse/update-site.<br/>The plugin indicates for example, non-implemented steps via highlighting, or existing steps via auto-completion (Ctrl+Space) as you can see on the screenshot below.</p>
+        <p>Here is a piece of advice for Eclipse: there is a very useful Cucumber JVM Eclipse Plugin that you can install via "Install New Software" menu via this address: https://cucumber.io/cucumber-eclipse/update-site.<br/> You need add the cucumber nature to your Maven project. Open the contextual menu from your robot (Maven project) - right click - Configure > Convert as cucumber project... A cucumber icon will appears on my project. The plugin indicates for example, non-implemented steps via highlighting, or existing steps via auto-completion (Ctrl+Space) as you can see on the screenshot below. More information on https://github.com/cucumber/cucumber-eclipse</p>
         <p>To use external libraries as NoraUi within your Gherkin files, in Eclipse preferences go to Cucumber > User Settings. Then add 'noraui' root package to your classpath. Now your are able to use generic steps (click, type, check, open a page...) from NoraUi dependency in your own project.</p>
       </div>
       <div class="w3-row-padding w3-center w3-margin-top w3-margin-bottom">
@@ -308,7 +308,7 @@ Feature: My new feature
       You can find all methods <a href="https://noraui.github.io/NoraUi/com/github/noraui/application/steps/CommonSteps.html" target="_blank">here</a><br/><br/>
       Let's focus now on the structure of the added steps within our new scenario.<br/>
       <div class="w3-margin-left">
-      <b>When I click on '<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'.</b>
+      <b>When I click on $<span class="w3-text-red">mypackage.</span><span class="w3-text-green">MyPage</span><span class="w3-text-blue">-myElement</span>'</b>
       </div>
       The above step allows you to click on a specific element of a web page. It applies for any <span class="w3-text-green">Page</span>, for any of its <span class="w3-text-blue">PageElement</span> from any <span class="w3-text-red">'pages' subpackages</span> of your project.<br/>
 
@@ -317,11 +317,11 @@ Feature: My new feature
 Feature: My new feature
   Scenario Outline: My new feature scenario
     Given 'GOOGLE_HOME' is opened.
-    # When I update text 'google.SearchPage-searchField' with '&lt;search&gt'.
-    # And I click on 'google.SearchPage-searchButton'.
+    # When I update text $google.SearchPage-searchField with '&lt;search&gt'
+    # And I click on $google.SearchPage-searchButton
     # The 2 above lines have been replaced due to google search page behavior change
-    When I update text 'google.SearchPage-searchField' and type ENTER with '&lt;search&gt'.
-    Then I check that 'google.SearchPage-googleLink' is present.
+    When I update text $google.SearchPage-searchField and type ENTER with '&lt;search&gt'
+    Then I check that $google.SearchPage-googleLink is present
 
     And I go back to 'GOOGLE_HOME'
   Examples:
@@ -397,13 +397,13 @@ xpath=(//h3//a)[1]</code></pre>
           </ul>
     </p>
       Create a new method in your code that will simply call existing generic methods of the framework as below:
-      <pre class="language-java"><code>@Given("custom application action with click on '(.*)-(.*)', check value on '(.*)-(.*)' and update value on '(.*)-(.*)'")
-public void customApplicationAction(String pageA, String toClickA, String pageB, String elementNameB, String pageC, String elementNameC) {
-    clickOn(Page.getInstance(pageA).getPageElementByKey('-' + toClickA));
-    if (!checkInputText(Page.getInstance(pageB).getPageElementByKey('-' + elementNameB), "RED")) {
-        updateText(Page.getInstance(pageC).getPageElementByKey('-' + elementNameC), "GREEN");
+      <pre class="language-java"><code>@Given("custom application action with click on {page-element}, check value on {page-element} and update value on {page-element}")
+public void customApplicationAction(PageElement elementNameA, PageElement elementNameB, PageElement elementNameC) {
+    clickOn(elementNameA);
+    if (!checkInputText(elementNameB, "RED")) {
+        updateText(elementNameC, "GREEN");
     } else {
-        updateText(Page.getInstance(pageC).getPageElementByKey('-' + elementNameC), "ERROR");
+        updateText(elementNameC, "ERROR");
     }
 }</code></pre>
     <b>"clickOn"</b>, <b>"checkInputText"</b> and <b>"updateText"</b> already exist. You can find all methods <a href="https://noraui.github.io/NoraUi/noraui/application/steps/Step.html" target="_blank">here</a>
@@ -412,7 +412,7 @@ public void customApplicationAction(String pageA, String toClickA, String pageB,
 Feature: My new feature
   Scenario Outline: My new feature scenario
     ...
-    custom application action with click on 'package.Page-elementA', check value on 'package.Page-elementB' and update value on 'package.Page-elementC'
+    custom application action with click on $package.Page-elementA, check value on $package.Page-elementB and update value on $package.Page-elementC
     ...
     Examples:
     #DATA
@@ -428,7 +428,7 @@ Feature: My new feature
           </ul>
       </p>
       The principle stays the same:
-      <pre class="language-java"><code>@Then("custom application action with '(.*)'")
+      <pre class="language-java"><code>@Then("custom application action with {string}")
 public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
     Foos foos = new Foos();
     foos.deserialize(fooJsonString);
@@ -592,10 +592,10 @@ dataProvider.out.type=CONSOLE
     As the input data are placed in <i>src/test/resources/data/in</i>, result files are placed in <i>src/test/resources/data/out</i> in the case you are using files as output (EXCEL or CSV). <br/>
     For this tutorial, we chose the CONSOLE data output provider. So after the run, you should see the following content in the console:
     </p>
-    <pre class="language-gherkin"><code>[2017-09-24 13:08:43]: > When I update text 'google.SearchPage-searchField' with 'test'
-[2017-09-24 13:08:43]: > When I click on 'google.SearchPage-searchButton'
-[2017-09-24 13:08:44]: > And I check that 'google.SearchPage-googleLink' is present
-[2017-09-24 13:08:44]: > And I go back to 'GOOGLE_HOME'
+    <pre class="language-gherkin"><code>[2017-09-24 13:08:43]: > When I update text $google.SearchPage-searchField with 'test'
+[2017-09-24 13:08:43]: #1 - When I click on $google.SearchPage-searchButton
+[2017-09-24 13:08:44]: #2 - And I check that $google.SearchPage-googleLink is present
+[2017-09-24 13:08:44]: #3 - And I go back to 'GOOGLE_HOME'
 [2017-09-24 13:08:47]: ****************************************************************************************
 [2017-09-24 13:08:47]: *                                                                                      *
 [2017-09-24 13:08:47]: *  Scenario: [@MyNewFeature] step 1 of 1 with 0 error(s) and 0 alert(s). 0s remaining  *
