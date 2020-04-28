@@ -526,16 +526,28 @@ public void cancelOrNotAllSteps(String fooJsonString) throws FailureException {
     Here, we just have defined in the robot Context a new "google" application linked with a selectors file named "google.ini" and pointing at a URI named "google" in the robot properties file (<i>src/main/resources/XXX.properties</i>).<br/>
     So, in this file, add the following content: <b>google=${google}</b> and in <i>src/test/resources/environments</i> filter files, you can simply set a value to the new <b>google</b> variable. An environment filter file should look like this (for instance 'dev.properties'):
     </p>
-    <pre class="language-gherkin"><code>#phantom,chrome,ie,htmlunit
+    <pre class="language-gherkin"><code>#chrome, firefox or ie
 browser=chrome
-timeout=20
+# remoteWebDriverUrl=http://localhost:4444/wd/hub
+# remoteWebDriverBrowserVersion=80
+# remoteWebDriverPlatformName=Linux
+headless=true
+noSandbox=true
+# modifyheaderPath=
+timeout=60
 selectors.version=V1
-display.stacktrace=true
+
+display.stacktrace=false
+
+#application list
 logogame=https://noraui.github.io/demo/logogame/v3/
 google=https://www.google.com/
+
+# proxy configuration
 http_proxy=
 https_proxy=
 no_proxy=
+
 locale=en</code></pre>
     <p>
     These different filter files are necessary to run your scenarios on several platforms and manage the global configuration dynamically depending on the phase in which the robot is running. Commonly, the phases are <b>dev</b> for development, <b>ci</b> for continuous integration and <b>prod</b> for production if the robot aims for executing operations on applications in production.
