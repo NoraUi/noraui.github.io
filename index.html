@@ -694,7 +694,7 @@ dataProvider.out.type=CONSOLE
           <li>Jenkins</li>
           <p>Use a Maven job.</p>
           <p style="margin:0">On "Goal" of <b>Build</b> part:</p>
-          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clean test javadoc:javadoc -Dcucumber.options="--tags '@LoginLogout'" -Pjavadoc,preIC,scenarioInitiator,ci,unit-tests,postIC,analyze -Dmaven.test.failure.ignore=true sonar:sonar</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clean test javadoc:javadoc -Dcucumber.options="--tags '@LoginLogout'" -Pjavadoc,preIC,scenarioInitiator,ci,unit-tests,postIC,drivers,analyze -Dmaven.test.failure.ignore=true sonar:sonar</p>
           <p style="margin-bottom:0">On "Execute shell script" of <b>Post Steps</b> part:</p>
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cp ${WORKSPACE}/src/test/resources/dev/formatter.js ${WORKSPACE}/target/reports/html/formatter.js</p>
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cp ${WORKSPACE}/src/test/resources/dev/index.html ${WORKSPACE}/target/reports/html/index.html</p>
@@ -730,7 +730,7 @@ if(expectationMatcher.count >0){
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script:</p>
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- test/run.sh</p>
           <p style="margin-bottom:0">On <b>test/run.sh</b> file:</p>
-          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package javadoc:javadoc -Dcucumber.options="--tags '@LoginLogout'" -Pjavadoc,preIC,scenarioInitiator,ci,unit-tests,postIC,analyze -Dmaven.test.failure.ignore=true sonar:sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.organization=$YOUR_ORGANIZATION -Dsonar.login=$SONAR_TOKEN</p>
+          <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package javadoc:javadoc -Dcucumber.options="--tags '@LoginLogout'" -Pjavadoc,preIC,scenarioInitiator,ci,unit-tests,postIC,drivers,analyze -Dmaven.test.failure.ignore=true sonar:sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.organization=$YOUR_ORGANIZATION -Dsonar.login=$SONAR_TOKEN</p>
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl -s "https://api.travis-ci.org/jobs/${TRAVIS_JOB_ID}/log.txt?deansi=true" > nonaui.log</p>
           <p style="margin:0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sed ... and exit 255 if an error occurred.</p>
       </ul>
