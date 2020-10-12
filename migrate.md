@@ -1,4 +1,12 @@
-# How to migrate from [4.0.x] to [4.2.x]
+# How to migrate from [4.3.x] to [4.4.x]
+
+* You need change `robot\src\main\resources\NoraRobot.properties` (noSandbox=${noSandbox})  and `robot\src\test\resources\environments\xxx.properties` (noSandbox=...) by `robot\src\main\resources\webdrivers.properties` (webdriverOptionsAdditionalArgs=--no-sandbox)
+* You need change `robot\src\main\resources\NoraRobot.properties` (remoteWebDriverUrl=${remoteWebDriverUrl}) by `robot\src\main\resources\webdrivers.properties` (remoteWebDriverUrl=${remoteWebDriverUrl})
+* You need change `robot\src\main\resources\NoraRobot.properties` (remoteWebDriverBrowserVersion=${remoteWebDriverBrowserVersion}) by `robot\src\main\resources\webdrivers.properties` (remoteWebDriverBrowserVersion=${remoteWebDriverBrowserVersion})
+* You need change `robot\src\main\resources\NoraRobot.properties` (remoteWebDriverPlatformName=${remoteWebDriverPlatformName}) by `robot\src\main\resources\webdrivers.properties` (remoteWebDriverPlatformName=${remoteWebDriverPlatformName})
+* You need change `robot\src\main\resources\NoraRobot.properties` (modifyheaderPath=${modifyheaderPath}) by `robot\src\main\resources\webdrivers.properties` (modifyheaderPath=${modifyheaderPath})
+
+# How to migrate from [4.1.x] to [4.2.x]
 
 * You need use new PageElement:
     * Change 'google.GooglePage-searchField' by $google.GooglePage-searchField
