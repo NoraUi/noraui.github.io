@@ -14,7 +14,7 @@
 
 [Logo Game (jhipster sample)](https://noraui.github.io/demo/jhipstersample/).
 
-[Bakery](https://noraui.github.io/bakery/).
+[Bakery](https://noraui.github.io/bakery.io/).
 
 # License
 
