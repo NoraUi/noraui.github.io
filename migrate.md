@@ -7,7 +7,7 @@
 * You need change `robot\src\main\resources\NoraRobot.properties` (modifyheaderPath=${modifyheaderPath}) by `robot\src\main\resources\webdrivers.properties` (modifyheaderPath=${modifyheaderPath})
 
 # How to migrate from [4.2.x] to [4.3.x]
-* All com.github.noraui.utils.Context.waitUntil(...) must be changed in com.github.noraui.browser.waits.Wait.until(...)
+* All `com.github.noraui.utils.Context.waitUntil(...)` must be changed in `com.github.noraui.browser.waits.Wait.until(...)`
 * If you extended the `DataTableConfigurer` class to declare new types, rename it into `CucumberTypeRegistryConfigurer`
 
 # How to migrate from [4.1.x] to [4.2.x]
