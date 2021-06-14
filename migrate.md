@@ -7,6 +7,7 @@
 * You need change `robot\src\main\resources\NoraRobot.properties` (modifyheaderPath=${modifyheaderPath}) by `robot\src\main\resources\webdrivers.properties` (modifyheaderPath=${modifyheaderPath})
 
 # How to migrate from [4.1.x] to [4.2.x]
+* All com.github.noraui.utils.Context.waitUntil(...) must be changed in com.github.noraui.browser.waits.Wait.until(...)
 
 * You need use new PageElement:
     * Change 'google.GooglePage-searchField' by $google.GooglePage-searchField
