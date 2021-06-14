@@ -6,10 +6,12 @@
 * You need change `robot\src\main\resources\NoraRobot.properties` (remoteWebDriverPlatformName=${remoteWebDriverPlatformName}) by `robot\src\main\resources\webdrivers.properties` (remoteWebDriverPlatformName=${remoteWebDriverPlatformName})
 * You need change `robot\src\main\resources\NoraRobot.properties` (modifyheaderPath=${modifyheaderPath}) by `robot\src\main\resources\webdrivers.properties` (modifyheaderPath=${modifyheaderPath})
 
-# How to migrate from [4.1.x] to [4.2.x]
+# How to migrate from [4.2.x] to [4.3.x]
 * All com.github.noraui.utils.Context.waitUntil(...) must be changed in com.github.noraui.browser.waits.Wait.until(...)
+* If you extended the `DataTableConfigurer` class to declare new types, rename it into `CucumberTypeRegistryConfigurer`
 
-* You need use new PageElement:
+# How to migrate from [4.1.x] to [4.2.x]
+* You need to use new PageElement:
     * Change 'google.GooglePage-searchField' by $google.GooglePage-searchField
     * Change {string} String pageElement by {page-element} PageElement pageElement
 
