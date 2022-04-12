@@ -1,12 +1,23 @@
-Change long next version (5.0.0) (2020-0x-xx)
+Change long next version (5.0.0) (202x-0x-xx)
 -----------------------
 * Upgrade cucumber version (4.x to 5.x) in progerss
 
+Change log next version (4.5.0) (2022-04-xx)
+-----------------------
+* Integration to AWS
+* udate all dependancies
 
-Change log next version (4.2.0) (2020-0x-xx)
+Change log next version (4.4.0) (2021-01-19)
+-----------------------
+*
+
+Change log next version (4.3.0) (2020-05-18)
+-----------------------
+*
+
+Change log next version (4.2.3) (2020-04-19)
 -----------------------
 * Use NoraUi PageElement in Cucumber in progerss
-*
 
 Change log next version (4.1.1) (2020-02-05)
 -----------------------
